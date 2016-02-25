@@ -7,6 +7,15 @@
 
   <%= render "layouts/shared/navbar" %>
 
+  <% flash.each do |type, message| %>
+      <div class="alert alert-success">
+        <div>
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong><%= type.titleize %>! <%= message %></strong>
+        </div>
+      </div>
+  <% end %>
+
   <main class="container">
 
     <%= yield %>
