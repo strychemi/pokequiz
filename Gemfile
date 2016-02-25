@@ -16,6 +16,7 @@ gem 'figaro'
 gem 'letter_opener'
 gem 'delayed_job_active_record'
 gem 'will_paginate'
+gem 'httparty'
 
 group :development, :test do
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'

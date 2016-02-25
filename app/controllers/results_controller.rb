@@ -6,12 +6,12 @@ class ResultsController < ApplicationController
   end
 
   def new
-    @result = Result.new
+    @result = current_user.result.build
     @question = Question.generate_answers(category) #Need this method to return an array of answers
   end
 
   def create
-    @result = Result.new(result_params)
+    @result = current_user.result.build(result_params)
     if @result.save
       flash[:success] = "Answer submitted"
       result_path(@result)
