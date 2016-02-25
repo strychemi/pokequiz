@@ -1,24 +1,16 @@
 <section class="row">
   <section class="col-md-4">
-    <h2>Activity Feed</h2>
+
     <%= render partial: "activities/activity", locals: { activity: activity } %>
+    
   </section>
   <section class="col-md-8">
-    <h2>Leaderboard</h2>
-    
 
-    <h2>My Stats</h2>
-    <section class="row">
-      <section class="col-md-12">
+    <%= render partial: "users/leaderboard", locals: { users: @users } %>
 
-      </section>
-    </section>
+    <%= render partial: "users/user_stats", locals: { user: @user } %>
 
-    <h2>Question Stats</h2>
-    <section class="row">
-      <section class="col-md-12">
+    <%= render partial: "questions/question_stats", locals: { question: @questions } %>
 
-      </section>
-    </section>
   </section>
 </section>
