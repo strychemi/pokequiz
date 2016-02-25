@@ -3,13 +3,26 @@ require 'pp'
 
 class PokeAPI
 
+  attr_reader :pokemon, :types
+
   def initialize
     @url = 'http://pokeapi.co/api/v2/'
     @pokemon = {}
+    @types = Array.new(19)
   end
 
   def get_pokemon(poke_name)
     @pokemon = HTTParty.get(@url + "pokemon/" + poke_name).parsed_response
+  end
+
+  def get_all_types
+
+    (1..18).to_a.each do |x|
+      puts "Getting type #{x}"
+      type_response = HTTParty.get(@url + "type/" + x.to_s).parsed_response
+      @types[x] = { name: type_response["name"], damage_relations: type_response["damage_relations"] }
+    end
+
   end
 
   def get_name
