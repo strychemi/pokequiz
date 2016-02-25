@@ -20,8 +20,7 @@ end
 # Seed Config Vars
 # ----------------------------------------
 
-MULTIPLIER = 10
-TYPES = 2
+TYPES = 18
 
 # ----------------------------------------
 # Setup API
@@ -56,6 +55,31 @@ end
 puts "Populating type_relationships with default normal effectiveness"
 (1..TYPES).each do |attack|
   (1..TYPES).each do |defend|
-    TypeRelationship.create(attack_type_id: attack, defend_type_id: defend, effectiveness: "normal" )
+    relation_checker = false
+    relations_hash = all_types[attack][:damage_relations]
+
+    if relations_hash['no_damage_to'][0]
+      if relations_hash['no_damage_to'].any? { |relation| relation["name"] == all_types[defend][:name] }
+        TypeRelationship.create(attack_type_id: attack, defend_type_id: defend, effectiveness: "no_damage" )
+        relation_checker = true
+      end
+    end
+
+    if relations_hash['half_damage_to'][0]
+
+      if relations_hash['half_damage_to'].any? { |relation| relation["name"] == all_types[defend][:name] }
+        TypeRelationship.create(attack_type_id: attack, defend_type_id: defend, effectiveness: "half_damage" )
+        relation_checker = true
+      end
+    end
+
+    if relations_hash['double_damage_to'][0]
+      if relations_hash['double_damage_to'].any? { |relation| relation["name"] == all_types[defend][:name] }
+        TypeRelationship.create(attack_type_id: attack, defend_type_id: defend, effectiveness: "double_damage" )
+        relation_checker = true
+      end
+    end
+    TypeRelationship.create(attack_type_id: attack, defend_type_id: defend, effectiveness: "normal" ) if relation_checker == false
+    
   end
 end
