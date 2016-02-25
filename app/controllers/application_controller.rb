@@ -5,27 +5,24 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def user_page
-    @user_page = User.find(params[:id])
-  end
-  helper_method :user_page
-  # Simply store our ID in the session
-  # and set the current user instance var
   def sign_in(user)
     user.regenerate_auth_token
     cookies[:auth_token] = user.auth_token
     @current_user = user
+    @current_user == user && cookies[:auth_token] == user.auth_token
   end
 
   def permanent_sign_in(user)
     user.regenerate_auth_token
     cookies.permanent[:auth_token] = user.auth_token
     @current_user = user
+    @current_user == user && cookies[:auth_token] == user.auth_token
   end
-  # reverse the sign in...
+
   def sign_out
     @current_user = nil
-    cookies.delete(:auth_token)
+    cookies.permanent[:auth_token] = cookies[:auth_token] = nil
+    @current_user.nil? && cookies[:auth_token].nil?
   end
 
   def current_user
@@ -33,8 +30,6 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
-  # Will turn the current_user into a boolean
-  # e.g. `nil` becomes false and anything else true.
   def signed_in_user?
     !!current_user
   end
@@ -42,25 +37,15 @@ class ApplicationController < ActionController::Base
 
   def require_login
     unless signed_in_user?
-      flash[:error] = 'Not authorized, please sign in!'
-      redirect_to root_url  #< Remember this is a custom route
+      flash[:error] = 'Unauthorized, please sign in'
+      redirect_to login_path
     end
   end
 
   def require_current_user
-    # don't forget that params is a string!!!
-    unless params[:id] == current_user.id.to_s
+    unless (params[:id] == current_user.id.to_s) || (params[:user_id] == current_user.id.to_s)
       flash[:error] = "You're not authorized to view this"
-      if request.referrer.nil?
-        redirect_to user_timeline_path(current_user)
-      else
-        redirect_to request.referrer
-      end
+      redirect_to request.referrer || root_path
     end
   end
-
-  def get_user
-    User.find(params[:id].to_i)
-  end
-  helper_method :get_user
 end
