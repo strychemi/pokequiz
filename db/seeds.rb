@@ -21,6 +21,8 @@ end
 # ----------------------------------------
 
 TYPES = 18
+POKEMON = 10
+MULTIPLIER = 10
 
 # ----------------------------------------
 # Setup API
@@ -82,4 +84,39 @@ puts "Populating type_relationships with default normal effectiveness"
     TypeRelationship.create(attack_type_id: attack, defend_type_id: defend, effectiveness: "normal" ) if relation_checker == false
     
   end
+end
+
+# ----------------------------------------
+# Populate database with Pokemon
+# ----------------------------------------
+
+(1..POKEMON).to_a.each do |x|
+  puts "Getting Pokemon #{x}"
+  @pokeapi.get_pokemon(x.to_s)
+  pokemon = @pokeapi.pokemon_complete
+  p = Pokemon.new(name: pokemon[:name], first_type_id: Type.find_by_name(pokemon[:types][0]).id)
+  p.second_type_id = Type.find_by_name(pokemon[:types][1]).id if pokemon[:types][1]
+  p.save!
+end
+
+# ----------------------------------------
+# Populate database with users, profiles
+# ----------------------------------------
+
+MULTIPLIER.times do
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  username = Faker::Company.name
+
+  u = User.new
+  u.email = Faker::Internet.free_email("#{first_name} #{last_name}")
+  u.password = "qwerqwer"
+  u.save
+
+  up = Profile.new
+  up.user_id = u.id
+  up.first_name = first_name
+  up.last_name = last_name
+  up.username = username
+  up.save
 end
