@@ -10,7 +10,7 @@
       </div>
       <%= form_for user do |user_fields| %>
         <div class="modal-body">
-          <%= fields_for user.build_profile do |profile_fields| %>
+          <%= user_fields.fields_for :profile do |profile_fields| %>
             <%= profile_fields.label "First Name" %>
             <%= profile_fields.text_field :first_name, class: "form-control" %>
 
@@ -35,8 +35,12 @@
             <%= profile_fields.label "Favorite Pokemon Type" %>
             <%= profile_fields.collection_select :type_id, Type.all, :id, :name, class: "form-control" %>
 
-            <%= profile_fields.label "Choose an Avatar" %>
-            <%= profile_fields.file_field :avatar_id, class: "form-control" %>
+            <%= profile_fields.fields_for :photo do |photo_field| %>
+
+              <%= photo_field.label "Choose an Avatar" %>
+              <%= photo_field.file_field :photo, class: "form-control" %>
+
+            <% end %>
           <% end %>
         </div>
         <div class="modal-footer">

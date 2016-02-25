@@ -13,17 +13,20 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.build_profile
+    @user.profile.build_photo
   end
 
   # TODO: welcome email
   def create
     @user = User.new( user_params )
     if @user.save
-      login(@user)
+      sign_in(@user)
       flash[:success] = "Thanks for signing up!"
       redirect_to user_path(@user)
     else
-      flash.now[:danger] = "Oops... please correct errors and try again."
+      flash.now[:danger] = "Oops... please correct errors and try again: " +
+        @user.errors.full_messages.join(', ')
       render :new
     end
   end
@@ -60,7 +63,8 @@ class UsersController < ApplicationController
   def user_params
     # TODO: update necessary params based on backend
     params.require(:user).permit(:email, :password, :password_confirmation,
-                                 profile_attributes: [:first_name, :last_name, :pokemon_id, :type_id, :id, :username])
+                                 :profile_attributes => [:user_id, :first_name, :last_name, :pokemon_id, :type_id, :id, :username,
+                                                         :photo_attributes => [:photo]])
   end
 
 end

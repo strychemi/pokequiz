@@ -2,6 +2,6 @@
 
   <%= link_to "Signed in as #{current_user.profile.username}", profile_path(current_user.profile) %>
 
-  <%= link_to "Sign Out", logout_path, method: :delete, class: "btn btn-default" %>
+  <%= link_to "Sign Out", session_path, method: :delete, class: "btn btn-default" %>
 
 </div>

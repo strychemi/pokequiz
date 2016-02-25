@@ -7,7 +7,7 @@ class Photo < ActiveRecord::Base
 
     validates_with AttachmentSizeValidator, attributes: :photo, less_than: 5.megabytes
 
-    validates_attachment_presence :photo, presence: true 
+    validates_attachment_presence :photo, presence: true
 
 
 end
