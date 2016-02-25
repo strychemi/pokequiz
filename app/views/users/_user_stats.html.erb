@@ -1,16 +1,29 @@
+<h2>My Stats</h2>
 
-<table class="table">
-  <tr>
-    <td>
-      Questions Answered
-    </td>
-    <td>
+<section class="row">
+  <section class="col-md-12">
 
-    </td>
-  </tr>
-</table>
+    <table class="table table-striped">
+      <tr>
+        <td>Questions Answered</td>
+        <td><%= user.questions_answered %></td>
+      </tr>
 
-<%= user.questions_answered %>
-<%= user.correct_answers %>
-<%= user.incorrect_answers %>
-<%= user.answer_ratio %>
+      <tr>
+        <td>Correct Answers</td>
+        <td><%= user.correct_answers %></td>
+      </tr>
+
+      <tr>
+        <td>Incorrect Answers</td>
+        <td><%= user.incorrect_answers %></td>
+      </tr>
+
+      <tr>
+        <td>Answer Ratio (correct/total)</td>
+        <td><%= user.answer_ratio %></td>
+      </tr>
+    </table>
+
+  </section>
+</section>

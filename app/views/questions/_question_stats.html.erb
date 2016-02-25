@@ -1,0 +1,55 @@
+<h2>Question Stats</h2>
+
+<section class="row">
+  <section class="col-md-12">
+
+    <p>
+      Questions are ranked based on the number of times someone has gotten them correct or incorrect. More correct answers means the question is easier, more incorrect answers means it is harder. Categories are similarly ranked.
+    </p>
+
+    <h3>Top 10 Hardest Questions</h3>
+    <table class="table table-striped">
+      <% Result.hardest_questions.each do |question| %>
+        <tr>
+          <td>
+            <%= question.question %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+    <h3>Top 10 Easiest Questions</h3>
+    <table class="table table-striped">
+      <% Result.easiest_questions.each do |question| %>
+        <tr>
+          <td>
+            <%= question.question %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+    <h3>Hardest Categories</h3>
+    <table class="table table-striped">
+      <% Result.hardest_categories.each do |category| %>
+        <tr>
+          <td>
+            <%= category.name %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+    <h3>Easiest Categories</h3>
+    <table class="table table-striped">
+      <% Result.easiest_categories.each do |category| %>
+        <tr>
+          <td>
+            <%= category.name %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+  </section>
+</section>
