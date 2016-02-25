@@ -61,8 +61,3 @@ class PokeAPI
     {id: get_id, name: get_name, types: get_types}
   end
 end
-
-api = PokeAPI.new
-api.get_pokemon('1')
-# pp api.get_name
-pp api.pokemon_complete
