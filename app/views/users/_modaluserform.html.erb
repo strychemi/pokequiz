@@ -1,44 +1,44 @@
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="signinform" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Sign Up</h4>
+        <h4 class="modal-title text-center">Sign Up</h4>
       </div>
-      <%= form_for @user do |user_fields| %>
+      <%= form_for user do |user_fields| %>
         <div class="modal-body">
-          <%= fields_for @profile do |profile_fields| %>
+          <%= fields_for profile do |profile_fields| %>
             <%= profile_fields.label "First Name" %>
-            <%= profile_fields.text_field :first_name %>
+            <%= profile_fields.text_field :first_name, class: "form-control" %>
 
             <%= profile_fields.label "Last Name" %>
-            <%= profile_fields.text_field :last_name %>
+            <%= profile_fields.text_field :last_name, class: "form-control" %>
 
             <%= profile_fields.label "Username" %>
-            <%= profile_fields.text_field :username %>
+            <%= profile_fields.text_field :username, class: "form-control" %>
           <% end %>
 
           <%= user_fields.label "Email" %>
-          <%= user_fields.email_field :email %>
+          <%= user_fields.email_field :email, class: "form-control" %>
 
           <%= user_fields.label "Password" %>
-          <%= user_fields.password_field :password %>
+          <%= user_fields.password_field :password, class: "form-control" %>
 
           <%= user_fields.label "Password Confirmation" %>
-          <%= user_fields.password_field :password_confirmation %>
+          <%= user_fields.password_field :password_confirmation, class: "form-control" %>
 
-          <%= fields_for @profile do |profile_fields| %>
+          <%= fields_for profile do |profile_fields| %>
             <%= profile_fields.label "Favorite Pokemon" %>
-            <%= profile_fields.text_field :pokemon_id %>
+            <%= profile_fields.text_field :pokemon_id, class: "form-control" %>
 
             <%= profile_fields.label "Favorite Pokemon Type" %>
-            <%= profile_fields.text_field :type_id %>
+            <%= profile_fields.text_field :type_id, class: "form-control" %>
 
             <%= profile_fields.label "Choose an Avatar" %>
-            <%= profile_fields.text_field :avatar_id %>
+            <%= profile_fields.text_field :avatar_id, class: "form-control" %>
           <% end %>
         </div>
         <div class="modal-footer">
