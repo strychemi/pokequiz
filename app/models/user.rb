@@ -19,7 +19,8 @@ class User < ActiveRecord::Base
             :allow_nil => true
   validates :email, presence: true
 
-  accepts_nested_attributes_for :profile
+  accepts_nested_attributes_for :profile,
+                                :reject_if => :all_blank
 
   def generate_token
     begin
