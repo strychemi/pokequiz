@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   include AnswerStats
 
   has_secure_password
+  has_attached_file :avatar, :styles => {medium: '300x300', thumb: '100x100'}
 
   has_one :profile, dependent: :destroy
   has_many :activities
