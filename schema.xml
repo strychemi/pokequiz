@@ -147,17 +147,20 @@
 <part>id</part>
 </key>
 </table>
-<table x="475" y="402" name="problems">
+<table x="475" y="331" name="questions">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="question_id" null="1" autoincrement="0">
+<row name="question" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
-<default>NULL</default><relation table="questions" row="id" />
-</row>
+<default>NULL</default></row>
 <row name="solution" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
+<row name="category_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="categories" row="id" />
+</row>
 <row name="frequency" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -165,22 +168,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="652" y="500" name="questions">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="question" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
-<row name="category_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="categories" row="id" />
-</row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="813" y="577" name="categories">
+<table x="646" y="450" name="categories">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -218,7 +206,7 @@
 <row name="activable_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="followings" row="id" />
-<relation table="problems" row="id" />
+<relation table="questions" row="id" />
 </row>
 <row name="activable_type" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
