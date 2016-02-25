@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
   def index
     @activities = Activity.all.order("created_at DESC").limit(10)
-    @user = current_user
     @users = User.all
   end
 
@@ -30,13 +29,11 @@ class UsersController < ApplicationController
 
 
   def edit
-    @user = current_user
   end
 
 
   def update
-    @user = current_user
-    if @user.update( user_params )
+    if current_user.update( user_params )
       flash[:success] = "User information updated!"
       redirect_to user_path(@user)
     else
@@ -47,8 +44,7 @@ class UsersController < ApplicationController
 
 
   def destroy
-    @user = current_user
-    if @user.destroy
+    if current_user.destroy
       flash[:success] = "User destroyed!"
       redirect_to root_path
     else
@@ -62,7 +58,8 @@ class UsersController < ApplicationController
 
   def user_params
     # TODO: update necessary params based on backend
-    params.require(:user).permit()
+    params.require(:user).permit(:email, :password, :password_confirmation,
+                                 profile_attributes: [:first_name, :last_name, :pokemon_id, :type_id, :id, :username])
   end
 
 end

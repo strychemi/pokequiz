@@ -49,7 +49,7 @@ class PokeAPI
   end
 end
 
-# api = PokeAPI.new
-# api.get_pokemon('1')
-# # pp api.get_name
-# pp api.pokemon_complete
+api = PokeAPI.new
+api.get_pokemon('1')
+# pp api.get_name
+pp api.pokemon_complete
