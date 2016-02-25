@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @profile = @user.build_profile
   end
 
   # TODO: welcome email

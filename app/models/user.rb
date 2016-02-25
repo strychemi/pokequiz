@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   include AnswerStats
 
+  has_secure_password
+
   has_one :profile, dependent: :destroy
   has_many :activities
   has_many :results
@@ -9,12 +11,14 @@ class User < ActiveRecord::Base
   has_many :followeds, through: :initiated_followings, class_name: 'User'
 
    has_many :received_followings, class_name: 'Following', dependent: :destroy
-   has_many :followers, through: :received_followings, class_name: 'User' 
+   has_many :followers, through: :received_followings, class_name: 'User'
 
-   validates :password, 
-            :length => { :in => 8..24 }, 
+   validates :password,
+            :length => { :in => 8..24 },
             :allow_nil => true
   validates :email, presence: true
+
+  accepts_nested_attributes_for :profile
 
   def generate_token
     begin
