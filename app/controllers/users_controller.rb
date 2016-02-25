@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @users = User.all
     @questions = Question.all
   end
-
+  
 
   def show
     @user = User.find(params[:id])
