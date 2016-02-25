@@ -29,9 +29,7 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by_auth_token(cookies[:auth_token]) if cookies[:auth_token]
   end
   helper_method :current_user
-
-  # Will turn the current_user into a boolean
-  # e.g. `nil` becomes false and anything else true.
+  
   def signed_in_user?
     !!current_user
   end

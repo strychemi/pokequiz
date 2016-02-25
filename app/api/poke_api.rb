@@ -20,16 +20,36 @@ class PokeAPI
     @pokemon['id']
   end
 
+  def get_types
+    if @pokemon['types'].length == 2
+      [get_type_one, get_type_two]
+    else
+      [get_type_one]
+    end
+  end
+
   def get_type_one
-    @pokemon['types'][1]['type']['name']
+    if @pokemon['types'][0]['type']['name'].nil?
+      "N/A"
+    else
+      @pokemon['types'][0]['type']['name']
+    end
   end
 
   def get_type_two
-    @pokemon['types'][0]['type']['name']
+    if @pokemon['types'][1]['type']['name'].nil?
+      "N/A"
+    else
+      @pokemon['types'][1]['type']['name']
+    end
   end
 
   def pokemon_complete
-    {id: get_id, name: get_name, types: [get_type_one, get_type_two]}
+    {id: get_id, name: get_name, types: get_types}
   end
 end
 
+# api = PokeAPI.new
+# api.get_pokemon('1')
+# # pp api.get_name
+# pp api.pokemon_complete
