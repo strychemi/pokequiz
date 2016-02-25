@@ -1,17 +1,11 @@
 <section class="row">
   <section class="col-md-4">
     <h2>Activity Feed</h2>
-    <% @activities.each do |activity| %>
-      <%= render partial: "activities/activity", locals: { activity: activity } %>
-    <% end %>
+    <%= render partial: "activities/activity", locals: { activity: activity } %>
   </section>
   <section class="col-md-8">
     <h2>Leaderboard</h2>
-    <section class="row">
-      <section class="col-md-12">
-        
-      </section>
-    </section>
+    
 
     <h2>My Stats</h2>
     <section class="row">

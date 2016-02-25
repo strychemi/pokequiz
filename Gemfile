@@ -16,7 +16,11 @@ gem 'figaro'
 gem 'letter_opener'
 gem 'delayed_job_active_record'
 gem 'will_paginate'
+<<<<<<< HEAD
 gem 'bootstrap-sass'
+=======
+gem 'httparty'
+>>>>>>> 0929b89826d34480ec68243b422dcdd6bcd37f0c
 gem 'paperclip', '~> 4.3'
 
 group :development, :test do

@@ -1,0 +1,21 @@
+
+<table class="table table-striped">
+  <tr>
+    <th>Username</th>
+    <th>Number Answered</th>
+    <th>Number Correct</th>
+    <th>Number Incorrect</th>
+    <th>Ratio (Correct/Total)</th>
+  </tr>
+
+  <% users.each do |user| %>
+    <tr>
+      <td><%= user.profile.username %></td>
+      <td><%= user.questions_answered %></td>
+      <td><%= user.correct_answers %></td>
+      <td><%= user.incorrect_answers %></td>
+      <td><%= user.answer_ratio %></td>
+    </tr>
+  <% end %>
+
+</table>
