@@ -17,7 +17,7 @@ class PokeAPI
 
   def get_all_types
 
-    (1..2).to_a.each do |x|
+    (1..18).to_a.each do |x|
       puts "Getting type #{x}"
       type_response = HTTParty.get(@url + "type/" + x.to_s).parsed_response
       @types[x] = { name: type_response["name"], damage_relations: type_response["damage_relations"] }
