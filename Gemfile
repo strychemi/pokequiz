@@ -16,6 +16,7 @@ gem 'figaro'
 gem 'letter_opener'
 gem 'delayed_job_active_record'
 gem 'will_paginate'
+gem 'httparty'
 gem 'bootstrap-sass'
 gem 'paperclip', '~> 4.3'
 
