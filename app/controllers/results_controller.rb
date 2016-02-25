@@ -2,7 +2,7 @@ class ResultsController < ApplicationController
   before_action :require_current_user
 
   def show
-    @result = Result.find(params[:id])
+    @result = "test" #Result.find(params[:id])
   end
 
   def new
