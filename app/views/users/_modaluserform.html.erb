@@ -32,10 +32,10 @@
 
           <%= fields_for @profile do |profile_fields| %>
             <%= profile_fields.label "Favorite Pokemon" %>
-            <%= profile_fields.text_field :pokemon_id, class: "form-control" %>
+            <%= profile_fields.collection_select :pokemon_id, Pokemon.all, :id, :name, class: "form-control" %>
 
             <%= profile_fields.label "Favorite Pokemon Type" %>
-            <%= profile_fields.text_field :type_id, class: "form-control" %>
+            <%= profile_fields.collection_select :type_id, Type.all, :id, :name, class: "form-control" %>
 
             <%= profile_fields.label "Choose an Avatar" %>
             <%= profile_fields.file_field :avatar_id, class: "form-control" %>
