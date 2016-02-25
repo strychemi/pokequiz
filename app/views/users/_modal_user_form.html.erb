@@ -1,0 +1,51 @@
+<!-- Modal -->
+<div id="myModal<%= index %>" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Sign Up</h4>
+      </div>
+      <%= form_for @user do |user_fields| %>
+        <div class="modal-body">
+          <%= fields_for @user.profile do |profile_fields| %>
+            <%= profile_fields.label "First Name" %>
+            <%= profile_fields.text_field :first_name %>
+
+            <%= profile_fields.label "Last Name" %>
+            <%= profile_fields.text_field :last_name %>
+
+            <%= profile_fields.label "Username" %>
+            <%= profile_fields.text_field :username %>
+          <% end %>
+
+          <%= user_fields.label "Email" %>
+          <%= user_fields.email_field :email %>
+
+          <%= user_fields.label "Password" %>
+          <%= user_fields.password_field :password %>
+
+          <%= user_fields.label "Password Confirmation" %>
+          <%= user_fields.password_field :password_confirmation %>
+
+          <%= fields_for @user.profile do |profile_fields| %>
+            <%= profile_fields.label "Favorite Pokemon" %>
+            <%= profile_fields.text_field :pokemon_id %>
+
+            <%= profile_fields.label "Favorite Pokemon Type" %>
+            <%= profile_fields.text_field :type_id %>
+
+            <%= profile_fields.label "Choose an Avatar" %>
+            <%= profile_fields.text_field :avatar %>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <%= user_fields.submit "Sign Up", class: "btn btn-primary btn-block" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

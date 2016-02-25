@@ -1,0 +1,17 @@
+<section class="row">
+  <section class="col-md-6 col-md-offset-3">
+    <h1>Welcome to PokeQuiz!</h1>
+
+    <h2>The Web App that lets you:</h2>
+
+    <ul>
+      <li>Test your knowledge of Pokemon!</li>
+      <li>Compare your results with other users!</li>
+      <li>Follow other users!</li>
+    </ul>
+
+    <h2>Sign Up Now!</h2>
+    <%= link_to "Sign Up", "#", "data-toggle" => "modal", "data-target" => "#sign-in-form", class: "btn btn-block btn-primary" %>
+    <%= render partial: "users/_modal_user_form.html.erb", id: "sign-in-form" %>
+  </section>
+</section>
