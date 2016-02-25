@@ -32,13 +32,13 @@
 
           <%= fields_for @user.profile do |profile_fields| %>
             <%= profile_fields.label "Favorite Pokemon" %>
-            <%= profile_fields.text_field :username %>
+            <%= profile_fields.text_field :pokemon_id %>
 
             <%= profile_fields.label "Favorite Pokemon Type" %>
-            <%= profile_fields.text_field :username %>
+            <%= profile_fields.text_field :type_id %>
 
             <%= profile_fields.label "Choose an Avatar" %>
-            <%= profile_fields.text_field :username %>
+            <%= profile_fields.text_field :avatar %>
           <% end %>
         </div>
         <div class="modal-footer">

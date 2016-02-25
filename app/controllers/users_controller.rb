@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
 
   def index
+    @activities = Activity.all.order("created_at DESC").limit(10)
+    @user = current_user
     @users = User.all
+    @questions = Question.all
   end
-
+  
 
   def show
     @user = User.find(params[:id])
