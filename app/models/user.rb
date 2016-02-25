@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include AnswerStats
+
   has_one :profile, dependent: :destroy
   has_many :activities
   has_many :results
@@ -12,6 +14,5 @@ class User < ActiveRecord::Base
    validates :password, 
             :length => { :in => 8..24 }, 
             :allow_nil => true
-    validates :email, presence: true
-
+  validates :email, presence: true
 end
