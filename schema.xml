@@ -54,7 +54,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="701" y="242" name="pokemons">
+<table x="695" y="257" name="pokemons">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -73,7 +73,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="480" y="75" name="profiles">
+<table x="480" y="74" name="profiles">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -106,7 +106,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="702" y="51" name="photos">
+<table x="694" y="50" name="photos">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -147,7 +147,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="475" y="331" name="questions">
+<table x="678" y="451" name="questions">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -168,7 +168,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="646" y="450" name="categories">
+<table x="902" y="558" name="categories">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -179,7 +179,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="73" y="99" name="followings">
+<table x="73" y="81" name="followings">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -195,7 +195,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="283" y="232" name="activities">
+<table x="278" y="251" name="activities">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -205,13 +205,30 @@
 </row>
 <row name="activable_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="followings" row="id" />
-<relation table="questions" row="id" />
+<default>NULL</default><relation table="results" row="id" />
 </row>
 <row name="activable_type" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <row name="event" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="482" y="374" name="results">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="user_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="question_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="questions" row="id" />
+</row>
+<row name="result" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
