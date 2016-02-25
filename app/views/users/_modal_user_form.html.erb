@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div id="myModal<%= index %>" class="modal fade" role="dialog">
+<div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
 
     <!-- Modal content-->
@@ -10,7 +10,7 @@
       </div>
       <%= form_for @user do |user_fields| %>
         <div class="modal-body">
-          <%= fields_for @user.profile do |profile_fields| %>
+          <%= fields_for @profile do |profile_fields| %>
             <%= profile_fields.label "First Name" %>
             <%= profile_fields.text_field :first_name %>
 
@@ -30,7 +30,7 @@
           <%= user_fields.label "Password Confirmation" %>
           <%= user_fields.password_field :password_confirmation %>
 
-          <%= fields_for @user.profile do |profile_fields| %>
+          <%= fields_for @profile do |profile_fields| %>
             <%= profile_fields.label "Favorite Pokemon" %>
             <%= profile_fields.text_field :pokemon_id %>
 
@@ -38,7 +38,7 @@
             <%= profile_fields.text_field :type_id %>
 
             <%= profile_fields.label "Choose an Avatar" %>
-            <%= profile_fields.text_field :avatar %>
+            <%= profile_fields.text_field :avatar_id %>
           <% end %>
         </div>
         <div class="modal-footer">
