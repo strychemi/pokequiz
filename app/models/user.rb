@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  has_one :profile, dependent: :destroy
+  has_one :profile, inverse_of: :user, dependent: :destroy
   has_many :activities
   has_many :results
 
@@ -35,5 +35,4 @@ class User < ActiveRecord::Base
     generate_token
     save!
   end
-
 end
