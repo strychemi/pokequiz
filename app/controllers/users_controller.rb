@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def index
     if signed_in_user?
-      @activities = Activity.all.order("created_at DESC").limit(10)
+      @activities = Activity.followed_activity_list(current_user)
       @users = User.all
     else
       redirect_to new_user_path
