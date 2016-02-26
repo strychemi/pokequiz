@@ -18,7 +18,7 @@ class UserPresenter < BasePresenter
   end
 
   def followed_user_show_link(activity)
-    h.link_to(User.find(activity.activable_id).profile.full_name, h.user_path(activity.user))
+    h.link_to(User.find(activity.activable_id).profile.full_name, h.user_path(User.find(activity.activable_id)))
   end
 
   def username
