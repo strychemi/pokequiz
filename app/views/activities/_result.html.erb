@@ -1,0 +1,5 @@
+<% present act.user do |user_presenter| %>
+    <div class="well">
+      <%= user_presenter.user_show_link %> got a question <%= user_presenter.question_right(act.event) %>
+    </div>
+<% end %>
