@@ -15,7 +15,7 @@
             <%= "#{ri + 1}. #{r.question.question}" %>
           </td>
           <td>
-            <%= image_tag r.question.poke_from_solution.photo.photo.url(:thumb) %>
+            <%= render partial: 'question_photo', locals: {r: r} %>
           </td>
         </tr>
       <% end %>
