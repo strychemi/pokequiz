@@ -18,7 +18,7 @@
           <td><%= user.questions_answered %></td>
           <td><%= user.correct_answers %></td>
           <td><%= user.incorrect_answers %></td>
-          <td><%= user.answer_ratio %></td>
+          <td><%= user.answer_ratio.round(2) %></td>
         </tr>
       <% end %>
     </table>
