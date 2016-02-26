@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
 
   def index
-    @activities = Activity.all.order("created_at DESC").limit(10)
-    @users = User.all
+    if signed_in_user?
+      @activities = Activity.all.order("created_at DESC").limit(10)
+      @users = User.all
+    else
+      redirect_to new_user_path
+    end
   end
 
 
