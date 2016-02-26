@@ -14,3 +14,6 @@
 
 # Ignore public system images for pokemon
 /public/system/*
+
+# Ignore application configuration
+/config/application.yml

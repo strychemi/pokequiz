@@ -12,7 +12,7 @@
       <% Result.hardest_questions.each do |question| %>
         <tr>
           <td>
-            <%= question.question %>
+            <%= Question.where( id: question)[0].question %>
           </td>
         </tr>
       <% end %>
@@ -23,7 +23,7 @@
       <% Result.easiest_questions.each do |question| %>
         <tr>
           <td>
-            <%= question.question %>
+            <%= Question.where( id: question)[0].question %>
           </td>
         </tr>
       <% end %>

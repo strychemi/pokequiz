@@ -1,7 +1,7 @@
-require 'rubygems'
-require 'bundler/setup'
-require 'mechanize'
-require 'pry-byebug'
+# require 'rubygems'
+# require 'bundler/setup'
+# require 'mechanize'
+# require 'pry-byebug'
 
 class PokeScraper
   attr_accessor :agent
