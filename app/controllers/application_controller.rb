@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
     cookies[:auth_token] = user.auth_token
     @current_user = user
     @current_user == user && cookies[:auth_token] == user.auth_token
+    logger.debug "User #{user.profile.full_name} has signed in."
   end
 
   def permanent_sign_in(user)
@@ -20,6 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def sign_out
+    logger.debug "User #{@current_user.profile.full_name} has signed out."
     @current_user = nil
     cookies.permanent[:auth_token] = cookies[:auth_token] = nil
     @current_user.nil? && cookies[:auth_token].nil?
@@ -39,6 +41,7 @@ class ApplicationController < ActionController::Base
     unless signed_in_user?
       flash[:error] = 'Unauthorized, please sign in'
       redirect_to login_path
+      logger.debug "Someone tried to access a page that required a login"
     end
   end
 
@@ -46,6 +49,7 @@ class ApplicationController < ActionController::Base
     unless (params[:id] == current_user.id.to_s) || (params[:user_id] == current_user.id.to_s)
       flash[:error] = "You're not authorized to view this"
       redirect_to request.referrer || root_path
+      logger.debug "Someone tried to access a page that required the current user"
     end
   end
 end
