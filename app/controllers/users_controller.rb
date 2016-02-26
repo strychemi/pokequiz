@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
+    @user.profile.build_photo if @user.profile.photo.nil?
     unless @user
       flash[:danger] = "Sorry! That user doesn't exist!"
       redirect_to users_path
