@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, except: [:edit]
   resources :searches, only: [:create, :index]
   resource :session, only: [ :create, :destroy ]
-  resources :results, only: [:new, :create, :show]
+  resources :results, only: [:new, :index, :create, :show]
   resources :followings, only: [:create, :destroy]
   # resources :profiles, except: [ :index, :new ]
 

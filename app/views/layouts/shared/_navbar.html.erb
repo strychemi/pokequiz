@@ -14,10 +14,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-      <%= link_to "Quiz Me!", new_result_path, class: "btn btn-success navbar-btn navbar-left" if signed_in_user? %>
+      <% if signed_in_user? %>
+        <%= link_to "Quiz Me!", new_result_path, class: "btn btn-success navbar-btn navbar-left"%>
 
-      <%= render "layouts/shared/search_form" if signed_in_user? %>
+        <%= render "layouts/shared/search_form" %>
 
+        <%= link_to "Question History", results_path, class: "btn btn-success navbar-btn" %>
+      <% end %>
       <!-- from the application helper -->
       <%= sign_in_out %>
 

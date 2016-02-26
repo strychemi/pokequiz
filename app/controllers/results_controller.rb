@@ -1,9 +1,20 @@
 class ResultsController < ApplicationController
-  #before_action :require_current_user
+  before_action :require_login
+  before_action :current_user, only: [:index]
 
+  def index
+    @results = current_user.results
+  end
 
   def show
-    @result = Result.find(params[:id])
+    @result = Result.find_by_id(params[:id])
+    if @result.nil?
+      flash[:danger] = "That result doesn't exist!"
+      redirect_to users_path
+    elsif @result.user_id != current_user.id
+      flash[:danger] = "Not authorized to view this!"
+      redirect_to users_path
+    end
   end
 
   def new
@@ -25,20 +36,24 @@ class ResultsController < ApplicationController
     @result = Result.new(user_id: current_user.id)
 
     @question = Question.find_by_id(new_params[:question_id])
+    if @question
+      if @question.solution == new_params[:user_response]
+        @result.result = "true"
+      else
+        @result.result = "false"
+      end
 
-    if @question.solution == new_params[:user_response]
-      @result.result = "true"
+      @result.question_id = @question.id
+      if @result.save
+        flash[:success] = "Answer submitted"
+        redirect_to result_path(@result)
+      else
+        flash[:danger] = "There was a problem with your answer"
+        redirect_to users_path
+      end
     else
-      @result.result = "false"
-    end
-
-    @result.question_id = @question.id
-    if @result.save
-      flash[:success] = "Answer submitted"
-      redirect_to result_path(@result)
-    else
-      flash[:danger] = "There was a problem with your answer"
-      redirect_to new_result_path
+      flash[:danger] = "That question doesn't exist!"
+      redirect_to users_path
     end
   end
 
