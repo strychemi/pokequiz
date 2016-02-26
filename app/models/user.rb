@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  after_create :send_mail
   include AnswerStats
 
   has_secure_password
@@ -34,5 +35,17 @@ class User < ActiveRecord::Base
     self.auth_token = nil
     generate_token
     save!
+  end
+
+  def send_mail
+    User.send_welcome_email(self.id)
+  end
+
+  class << self
+    def send_welcome_email(id)
+      user = User.find(id)
+      UserMailer.welcome_email(user).deliver!
+    end
+    handle_asynchronously :send_welcome_email
   end
 end
