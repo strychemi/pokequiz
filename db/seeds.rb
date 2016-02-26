@@ -82,7 +82,7 @@ puts "Populating type_relationships with default normal effectiveness"
       end
     end
     TypeRelationship.create(attack_type_id: attack, defend_type_id: defend, effectiveness: "normal" ) if relation_checker == false
-    
+
   end
 end
 
