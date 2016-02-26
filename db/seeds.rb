@@ -132,7 +132,7 @@ def generate_users
     last_name = Faker::Name.last_name
     username = Faker::Company.name
     email = Faker::Internet.free_email("#{first_name} #{last_name}")
-    byebug
+   
     user = User.new(email: email, password: 'qwerqwer')
     user.build_profile(first_name: first_name, last_name: last_name, username: username)
     user.save!
@@ -158,7 +158,7 @@ def generate_questions
   MULTIPLIER.times do
     question = Faker::Lorem.sentence
     solution = Faker::Lorem.sentence
-    Question.create(question: question, solution: solution, category_id: Category.all.sample.id)
+    Question.create(question: question, solution: solution, category_id: Category.all.sample.id, frequency: 0)
   end
 end
 
@@ -170,7 +170,7 @@ def generate_results
   (MULTIPLIER * 3).times do
     user_id = User.all.sample.id
     question_id = Question.all.sample.id
-    result = [true, false].sample
+    result = ['true', 'false'].sample
     Result.create(user_id: user_id, question_id: question_id, result: result)
   end
 end

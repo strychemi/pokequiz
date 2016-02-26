@@ -7,7 +7,7 @@ class Result < ActiveRecord::Base
   has_many :activities, as: :activable
 
   validates :user, :question, presence: true
-  validates :result, presence: true, inclusion: { in: [true, false] }
+  validates :result, presence: true, inclusion: { in: ['true', 'false'] }
 
   def self.total_answers
     count
