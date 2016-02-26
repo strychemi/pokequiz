@@ -1,6 +1,6 @@
 <div class="navbar-form navbar-right">
 
-  <%= link_to "Signed in as #{current_user.profile.username}", profile_path(current_user.profile) %>
+  <%= link_to "Signed in as #{current_user.profile.username}", user_path(current_user) %>
 
   <%= link_to "Sign Out", session_path, method: :delete, class: "btn btn-default" %>
 
