@@ -3,7 +3,7 @@ class ResultsController < ApplicationController
   before_action :current_user, only: [:index]
 
   def index
-    @results = current_user.results.paginate(:page => params[:page], :per_page => 5)
+    @results = current_user.results.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
   end
 
   def show
