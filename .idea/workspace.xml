@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d47f47b6-0500-4a44-bf6e-463a53b9fc57" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/presenters/result_presenter.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/pokequiz.iml" afterPath="$PROJECT_DIR$/.idea/pokequiz.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/question.rb" afterPath="$PROJECT_DIR$/app/models/question.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/result.rb" afterPath="$PROJECT_DIR$/app/models/result.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/presenters/user_presenter.rb" afterPath="$PROJECT_DIR$/app/presenters/user_presenter.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
     </list>
     <ignored path="pokequiz.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,11 +53,143 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="result.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/result.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6085754">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="32" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RailsDependency/#pokequiz" pinned="false" current-in-tab="false">
+        <entry file="uml://RailsDependency/#pokequiz">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>RailsDependency</ID>
+              <OriginalElement>#pokequiz</OriginalElement>
+              <nodes>
+                <node x="851.0" y="74.41071428571422">User</node>
+                <node x="1608.5" y="0.0">Activity</node>
+                <node x="1601.0" y="179.99999999999997">Question</node>
+                <node x="349.0" y="558.9107142857142">Type</node>
+                <node x="0.0" y="537.5107142857142">TypeRelationship</node>
+                <node x="1272.0" y="416.4940476190476">Profile</node>
+                <node x="1299.0" y="302.4940476190476">Category</node>
+                <node x="1286.0" y="144.4940476190476">Result</node>
+                <node x="949.5" y="478.9107142857142">Photo</node>
+                <node x="424.5" y="54.41071428571422">Following</node>
+                <node x="909.5" y="569.9107142857142">Pokemon</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="Type" target="Type">
+                  <point x="0.0" y="0.0" />
+                  <point x="545.0" y="467.9107142857142" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="User" target="Result">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Pokemon" target="Profile">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Result" target="Question">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Category" target="Question">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Type" target="TypeRelationship">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Following" target="User">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="User" target="User">
+                  <point x="0.0" y="0.0" />
+                  <point x="1021.5" y="-60.58928571428578" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="User" target="Activity">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Photo" target="Profile">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Type" target="Pokemon">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Following" target="Activity">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="User" target="Profile">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="TypeRelationship" target="Type">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Result" target="Activity">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="User" target="Following">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+                <edge source="Question" target="Result">
+                  <point x="0.0" y="0.0" />
+                  <point x="0.0" y="0.0" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="0.674879485806106" x="345.61904761904765" y="275.61904761904765" />
+              <SelectedNodes />
+              <Categories>
+                <Category>Association fields</Category>
+                <Category>Migration fields</Category>
+              </Categories>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="poke_scraper.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/scraper/poke_scraper.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="2" selection-end-line="3" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="poke_api.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/api/poke_api.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seeds.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -124,13 +250,14 @@
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/shared/_sign_out_form.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
         <option value="$PROJECT_DIR$/app/presenters/base_presenter.rb" />
         <option value="$PROJECT_DIR$/app/presenters/user_presenter.rb" />
         <option value="$PROJECT_DIR$/app/presenters/result_presenter.rb" />
         <option value="$PROJECT_DIR$/app/models/question.rb" />
         <option value="$PROJECT_DIR$/app/models/result.rb" />
+        <option value="$PROJECT_DIR$/db/seeds.rb" />
+        <option value="$PROJECT_DIR$/app/scraper/poke_scraper.rb" />
       </list>
     </option>
   </component>
@@ -333,6 +460,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="scraper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pokequiz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pokequiz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="presenters" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -370,6 +515,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="helpers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pokequiz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pokequiz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -624,7 +787,7 @@
     <frame x="-33" y="-1027" width="1680" height="1027" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17261904" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -633,7 +796,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21607515" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18893528" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -740,128 +903,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://RailsDependency/#pokequiz">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>RailsDependency</ID>
-          <OriginalElement>#pokequiz</OriginalElement>
-          <nodes>
-            <node x="851.0" y="53.63690476190476">User</node>
-            <node x="1608.5" y="0.0">Activity</node>
-            <node x="349.0" y="467.55357142857144">Type</node>
-            <node x="1601.0" y="183.35119047619048">Question</node>
-            <node x="0.0" y="446.15357142857147">TypeRelationship</node>
-            <node x="1272.0" y="324.94047619047615">Profile</node>
-            <node x="1299.0" y="548.9404761904761">Category</node>
-            <node x="1286.0" y="137.44047619047615">Result</node>
-            <node x="424.5" y="28.934523809523796">Following</node>
-            <node x="949.5" y="387.55357142857144">Photo</node>
-            <node x="909.5" y="478.55357142857144">Pokemon</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="Type" target="Type">
-              <point x="-196.0" y="32.39999999999998" />
-              <point x="319.0" y="580.9535714285714" />
-              <point x="319.0" y="659.5535714285714" />
-              <point x="643.0" y="659.5535714285714" />
-              <point x="98.0" y="81.0" />
-            </edge>
-            <edge source="User" target="Result">
-              <point x="170.5" y="-0.0" />
-              <point x="1272.0" y="196.44047619047615" />
-              <point x="-110.5" y="-0.0" />
-            </edge>
-            <edge source="Pokemon" target="Profile">
-              <point x="112.0" y="-0.0" />
-              <point x="1192.0" y="548.5535714285714" />
-              <point x="-124.5" y="61.333333333333314" />
-            </edge>
-            <edge source="Result" target="Question">
-              <point x="110.5" y="39.33333333333334" />
-              <point x="1521.0" y="235.77380952380952" />
-              <point x="-123.0" y="-0.0" />
-            </edge>
-            <edge source="Following" target="User">
-              <point x="120.5" y="52.5" />
-              <point x="741.0" y="151.4345238095238" />
-              <point x="821.0" y="178.63690476190476" />
-              <point x="-170.5" y="-0.0" />
-            </edge>
-            <edge source="Category" target="Question">
-              <point x="97.5" y="-0.0" />
-              <point x="1521.0" y="585.9404761904761" />
-              <point x="-123.0" y="46.666666666666686" />
-            </edge>
-            <edge source="User" target="User">
-              <point x="-170.5" y="50.0" />
-              <point x="821.0" y="228.63690476190476" />
-              <point x="821.0" y="333.63690476190476" />
-              <point x="1106.75" y="333.63690476190476" />
-              <point x="85.25" y="125.0" />
-            </edge>
-            <edge source="Type" target="TypeRelationship">
-              <point x="-196.0" y="-64.80000000000001" />
-              <point x="319.0" y="483.75357142857143" />
-              <point x="119.5" y="-46.666666666666686" />
-            </edge>
-            <edge source="User" target="Activity">
-              <point x="170.5" y="-83.33333333333333" />
-              <point x="1272.0" y="63.285714285714334" />
-              <point x="1521.0" y="63.285714285714334" />
-              <point x="-115.5" y="-0.0" />
-            </edge>
-            <edge source="Photo" target="Profile">
-              <point x="72.0" y="-0.0" />
-              <point x="1192.0" y="413.05357142857144" />
-              <point x="-124.5" y="-0.0" />
-            </edge>
-            <edge source="Following" target="Activity">
-              <point x="120.5" y="-52.5" />
-              <point x="741.0" y="46.434523809523796" />
-              <point x="821.0" y="23.934523809523796" />
-              <point x="-115.5" y="-46.66666666666663" />
-            </edge>
-            <edge source="Type" target="Pokemon">
-              <point x="196.0" y="-0.0" />
-              <point x="-112.0" y="-0.0" />
-            </edge>
-            <edge source="User" target="Profile">
-              <point x="170.5" y="83.33333333333331" />
-              <point x="-124.5" y="-61.333333333333314" />
-            </edge>
-            <edge source="TypeRelationship" target="Type">
-              <point x="119.5" y="46.66666666666663" />
-              <point x="319.0" y="548.5535714285714" />
-              <point x="-196.0" y="-0.0" />
-            </edge>
-            <edge source="Result" target="Activity">
-              <point x="110.5" y="-39.33333333333334" />
-              <point x="1521.0" y="157.10714285714283" />
-              <point x="-115.5" y="46.66666666666666" />
-            </edge>
-            <edge source="User" target="Following">
-              <point x="-170.5" y="-100.00000000000001" />
-              <point x="741.0" y="81.4345238095238" />
-              <point x="120.5" y="-17.5" />
-            </edge>
-            <edge source="Question" target="Result">
-              <point x="-123.0" y="-46.66666666666666" />
-              <point x="1521.0" y="196.44047619047615" />
-              <point x="110.5" y="-0.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.674879485806106" x="345.61904761904765" y="169.9714285714286" />
-          <SelectedNodes>
-            <node>Profile</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Association fields</Category>
-            <Category>Migration fields</Category>
-          </Categories>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -910,14 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/poke_api.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5809129">
-          <caret line="21" column="75" selection-start-line="21" selection-start-column="75" selection-end-line="21" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/following.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -962,14 +995,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47441217">
-          <caret line="109" column="1" selection-start-line="109" selection-start-column="1" selection-end-line="109" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1040,8 +1065,132 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/result.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6085754">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="32" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://RailsDependency/#pokequiz">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>RailsDependency</ID>
+          <OriginalElement>#pokequiz</OriginalElement>
+          <nodes>
+            <node x="851.0" y="74.41071428571422">User</node>
+            <node x="1608.5" y="0.0">Activity</node>
+            <node x="1601.0" y="179.99999999999997">Question</node>
+            <node x="349.0" y="558.9107142857142">Type</node>
+            <node x="0.0" y="537.5107142857142">TypeRelationship</node>
+            <node x="1272.0" y="416.4940476190476">Profile</node>
+            <node x="1299.0" y="302.4940476190476">Category</node>
+            <node x="1286.0" y="144.4940476190476">Result</node>
+            <node x="949.5" y="478.9107142857142">Photo</node>
+            <node x="424.5" y="54.41071428571422">Following</node>
+            <node x="909.5" y="569.9107142857142">Pokemon</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="Type" target="Type">
+              <point x="0.0" y="0.0" />
+              <point x="545.0" y="467.9107142857142" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="User" target="Result">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Pokemon" target="Profile">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Result" target="Question">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Category" target="Question">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Type" target="TypeRelationship">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Following" target="User">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="User" target="User">
+              <point x="0.0" y="0.0" />
+              <point x="1021.5" y="-60.58928571428578" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="User" target="Activity">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Photo" target="Profile">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Type" target="Pokemon">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Following" target="Activity">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="User" target="Profile">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="TypeRelationship" target="Type">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Result" target="Activity">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="User" target="Following">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="Question" target="Result">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.674879485806106" x="345.61904761904765" y="275.61904761904765" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Association fields</Category>
+            <Category>Migration fields</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/poke_api.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scraper/poke_scraper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="2" selection-end-line="3" selection-end-column="22" />
           <folding />
         </state>
       </provider>
