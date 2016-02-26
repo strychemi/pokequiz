@@ -14,3 +14,9 @@
 
   </section>
 </section>
+
+<%= form_tag searches_path, method: 'post' do %>
+  <%= label_tag "query", "Find by email" %>
+  <%= text_field_tag "query" %>
+  <%= submit_tag "Search" %>
+<% end %>

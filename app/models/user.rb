@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   after_create :send_mail
   include AnswerStats
+  include Searchable
 
   has_secure_password
 
@@ -47,5 +48,13 @@ class User < ActiveRecord::Base
       UserMailer.welcome_email(user).deliver!
     end
     handle_asynchronously :send_welcome_email
+  end
+
+  def self.search(query)
+    if query
+      where('email LIKE ?', "%#{query}%")
+    else
+      where("")
+    end
   end
 end

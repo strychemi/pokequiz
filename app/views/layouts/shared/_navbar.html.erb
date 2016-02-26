@@ -14,6 +14,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
+      <%= link_to "Answer Question", "#", class: "btn btn-success navbar-btn navbar-left" if signed_in_user? %>
+
+      <%= render "layouts/shared/search_form" if signed_in_user? %>
+
       <!-- from the application helper -->
       <%= sign_in_out %>
 
