@@ -2,29 +2,33 @@
   <div class="col-xs-8 col-xs-offset-2">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h2 class="panel-title"> Question </h2>
+        <div class="panel-title text-center">Question</div>
       </div>
       <div class="panel-body">
         <div class="row">
-          <%= question.question %>
+          <div class="col-xs-12">
+            <h1 class="page-header text-center"><%= question.question %></h1>
+          </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <%= image_tag Pokemon.find_by(name: question.solution).photo.photo.url(:large) %>
+            <%= image_tag Pokemon.find_by(name: question.solution).photo.photo.url(:large), style: "display: block; margin: 0 auto;" %>
           </div>
         </div>
       </div>
       <div class="panel-footer">
         <div class="row">
-          <%= form_tag results_path, method: :post do %>
-            <%= hidden_field_tag "result[question_id]", question.id %>
-            <% question.get_choices.each do |choice| %>
-                <%= radio_button_tag "result[user_response]", choice %>
-                <%= label_tag choice %>
-                <br>
+          <div class="col-xs-12">
+            <%= form_tag results_path, method: :post, class: "form-group" do %>
+              <%= hidden_field_tag "result[question_id]", question.id %>
+              <% question.get_choices.each do |choice| %>
+                  <%= radio_button_tag "result[user_response]", choice %>
+                  <%= label_tag choice %>
+                  <br>
+              <% end %>
+              <%= submit_tag "Submit Answer", class: "btn btn-warning btn-lg" %>
             <% end %>
-            <%= submit_tag "Submit Answer", class: "btn btn-warning btn-lg" %>
-          <% end %>
+        </div>
         </div>
       </div>
     </div>
