@@ -69,10 +69,19 @@ ActiveRecord::Schema.define(version: 20160226020334) do
     t.datetime "updated_at",         null: false
   end
 
+  create_table "pokemon_types", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "pokemon_types", ["name"], name: "index_pokemon_types_on_name", using: :btree
+
   create_table "pokemons", force: :cascade do |t|
     t.string   "name",           null: false
     t.integer  "first_type_id",  null: false
     t.integer  "second_type_id"
+    t.integer  "photo_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -124,14 +133,6 @@ ActiveRecord::Schema.define(version: 20160226020334) do
   end
 
   add_index "type_relationships", ["attack_type_id", "defend_type_id"], name: "index_type_relationships_on_attack_type_id_and_defend_type_id", unique: true, using: :btree
-
-  create_table "types", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "types", ["name"], name: "index_types_on_name", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false

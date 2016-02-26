@@ -32,10 +32,10 @@ class UserPresenter < BasePresenter
   end
 
   def pokemon_type
-    if user.profile.type.nil?
+    if user.profile.pokemon_type.nil?
       "N/A"
     else
-      user.profile.type.name.capitalize
+      user.profile.pokemon_type.name.capitalize
     end
   end
 

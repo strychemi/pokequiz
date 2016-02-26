@@ -59,13 +59,13 @@ def generate_types
 
   puts "Populating database with types"
 
-  Type.destroy_all
+  PokemonType.destroy_all
   TypeRelationship.destroy_all
 
   all_types = @pokeapi.types
 
   (1..TYPES).each do |x|
-    Type.create(name: all_types[x][:name] )
+    PokemonType.create(name: all_types[x][:name] )
   end
 
   puts "Populating type_relationships with default normal effectiveness"
@@ -113,8 +113,8 @@ def generate_pokemon
     puts "Getting Pokemon #{x}"
     @pokeapi.get_pokemon(x.to_s)
     pokemon = @pokeapi.pokemon_complete
-    p = Pokemon.new(name: pokemon[:name], first_type_id: Type.find_by_name(pokemon[:types][0]).id)
-    p.second_type_id = Type.find_by_name(pokemon[:types][1]).id if pokemon[:types][1]
+    p = Pokemon.new(name: pokemon[:name], first_type_id: PokemonType.find_by_name(pokemon[:types][0]).id)
+    p.second_type_id = PokemonType.find_by_name(pokemon[:types][1]).id if pokemon[:types][1]
     p.save!
   end
 end
@@ -144,9 +144,9 @@ end
 # ----------------------------------------
 def generate_categories
   Category.destroy_all
-  2.times do
-    Category.create(name: Faker::Hipster.word)
-  end
+  Category.create(name: 'photo')
+  Category.create(name: 'type')
+  Category.create(name: 'effectiveness')
 end
 
 # ----------------------------------------
