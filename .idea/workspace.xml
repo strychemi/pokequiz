@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d47f47b6-0500-4a44-bf6e-463a53b9fc57" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user_mailer/welcome_email.html.erb" afterPath="$PROJECT_DIR$/app/views/user_mailer/welcome_email.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user_mailer/welcome_email.text.erb" afterPath="$PROJECT_DIR$/app/views/user_mailer/welcome_email.text.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
     </list>
     <ignored path="pokequiz.iws" />
     <ignored path=".idea/workspace.xml" />
