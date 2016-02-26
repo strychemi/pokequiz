@@ -29,13 +29,14 @@ class ResultsController < ApplicationController
     # when 3
     #   @question = Question.make_effectiveness_question
     # end
+    session[:question_id] = Base64.encode64(@question.id.to_s)
   end
 
   def create
     new_params = result_params
     @result = Result.new(user_id: current_user.id)
 
-    @question = Question.find_by_id(new_params[:question_id])
+    @question = Question.find_by_id(Base64.decode64(session[:question_id]).to_i)
     if @question
       if @question.solution == new_params[:user_response]
         @result.result = "true"
