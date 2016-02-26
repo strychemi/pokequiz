@@ -1,6 +1,6 @@
 class TypeRelationship < ActiveRecord::Base
-  belongs_to :attack_type, class_name: 'Type'
-  belongs_to :defend_type, class_name: 'Type'
+  belongs_to :attack_type, class_name: 'PokemonType'
+  belongs_to :defend_type, class_name: 'PokemonType'
 
   validates :attack_type, presence: true
   validates :defend_type, presence: true

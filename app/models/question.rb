@@ -42,8 +42,8 @@ class Question < ActiveRecord::Base
   end
 
   def self.make_effectiveness_question
-    attacker = Type.all.sample.name
-    defender = Type.all.sample.name
+    attacker = PokemonType.all.sample.name
+    defender = PokemonType.all.sample.name
     random_question = "What is #{attack}'s effectiveness vs #{defend}?"
     solution = TypeRelationship.find(attack_type_id: attacker.id, defend_type_id: defender.id).effectiveness
     if !Question.find_by_question_and_solution(random_question, solution)
