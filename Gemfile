@@ -19,6 +19,7 @@ gem 'will_paginate'
 gem 'httparty'
 gem 'bootstrap-sass'
 gem 'paperclip', '~> 4.3'
+gem 'mechanize'
 
 group :development, :test do
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
