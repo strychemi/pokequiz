@@ -1,17 +1,38 @@
 class ResultsController < ApplicationController
-  before_action :require_current_user
+  #before_action :require_current_user
+
 
   def show
     @result = "test" #Result.find(params[:id])
   end
 
   def new
-    @result = current_user.result.build
-    @question = Question.generate_answers(category) #Need this method to return an array of answers
+    case rand(1..Category.all.size)
+    when 1
+      @question = Question.make_photo_question 
+    when 2
+      @question = Question.make_type_question
+    when 3
+      @question = Question.make_effectiveness_question
+    end
+
+    session[:question_id] = @question[4]
+    #Need this method to return an array of answers
   end
 
   def create
-    @result = current_user.result.build(result_params)
+    @new_params = result_params
+    @result = Result.new(user_id: current_user.id)
+    
+    @question = Question.find_by_id(session[:question_id])
+
+    if @question.solution == @new_params[:user_response]
+      @result.result = "true"
+    else
+      @result.result = "false"
+    end
+
+    @result.question_id = @question.id
     if @result.save
       flash[:success] = "Answer submitted"
       result_path(@result)
@@ -24,6 +45,6 @@ class ResultsController < ApplicationController
   private
 
   def result_params
-    params.require(:result).permit(:user_id, :question_id, :result)
+    params.require(:result).permit( :user_response, :question_id, :result)
   end
 end
