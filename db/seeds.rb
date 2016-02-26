@@ -97,7 +97,7 @@ def generate_types
         end
       end
       TypeRelationship.create(attack_type_id: attack, defend_type_id: defend, effectiveness: "normal" ) if relation_checker == false
-      
+
     end
   end
 end
@@ -181,4 +181,3 @@ generate_users if GENERATE_USERS_BOOL
 generate_categories if GENERATE_CATEGORIES_BOOL
 generate_questions if GENERATE_QUESTIONS_BOOL
 generate_results if GENERATE_RESULTS_BOOL
-
