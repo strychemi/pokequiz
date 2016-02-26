@@ -44,17 +44,13 @@ class UsersController < ApplicationController
   end
 
 
-  def edit
-  end
-
-
   def update
     if current_user.update( user_params )
       flash[:success] = "User information updated!"
       redirect_to user_path(current_user)
     else
-      flash.now[:danger] = "Oops... please correct errors and try again."
-      render :edit
+      flash[:danger] = "Oops... please correct errors and try again."
+      redirect_to user_path(current_user)
     end
   end
 
