@@ -37,10 +37,10 @@
 
     <h3>Hardest Category</h3>
     <table class="table table-striped">
-      <% Result.hardest_categories(1).each_with_index do |category| %>
+      <% Result.hardest_category.each_with_index do |category| %>
         <tr>
           <td>
-            <%= category.name %>
+            <%= category.name.titleize %>
           </td>
         </tr>
       <% end %>
@@ -48,10 +48,10 @@
 
     <h3>Easiest Category</h3>
     <table class="table table-striped">
-      <% Result.easiest_categories(1).each do |category| %>
+      <% Result.easiest_category.each do |category| %>
         <tr>
           <td>
-            <%= category.name %>
+            <%= category.name.titleize %>
           </td>
         </tr>
       <% end %>

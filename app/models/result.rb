@@ -45,12 +45,32 @@ class Result < ActiveRecord::Base
                       )
   end
 
-  def self.hardest_categories(n = 2)
-    []
+  def self.hardest_category
+    cat = Result.find_by_sql("SELECT category_id,
+                          COUNT(question_id) AS question_count
+                          FROM results
+                          JOIN questions
+                            ON question_id = questions.id
+                          WHERE result = 'false'
+                          GROUP BY category_id
+                          ORDER BY question_count DESC
+                          LIMIT 1"
+                      )
+    cat.map{ |r| Category.find(r.category_id) }
   end
 
-  def self.easiest_categories(n = 2)
-    []
+  def self.easiest_category
+    cat = Result.find_by_sql("SELECT category_id,
+                          COUNT(question_id) AS question_count
+                          FROM results
+                          JOIN questions
+                            ON question_id = questions.id
+                          WHERE result = 'true'
+                          GROUP BY category_id
+                          ORDER BY question_count DESC
+                          LIMIT 1"
+                      )
+    cat.map{ |r| Category.find(r.category_id) }
   end
 
   def add_activity
@@ -67,4 +87,6 @@ class Result < ActiveRecord::Base
     q.save
     logger.debug "Question #{q.question} asked"
   end
+
+
 end
