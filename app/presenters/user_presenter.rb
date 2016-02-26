@@ -8,10 +8,8 @@ class UserPresenter < BasePresenter
 
 
   def user_show_photo
-    if !user.profile.photo.nil?
+    if user.profile.photo.photo.url != "/photos/original/missing.png"
       h.image_tag(user.profile.photo.photo.url(:medium))
-    else
-      #h.link_to("Choose a Photo", "#", "data-toggle" => "modal", "data-target" => "#signinform", class: "btn btn-block btn-primary" )
     end
   end
 
@@ -20,7 +18,7 @@ class UserPresenter < BasePresenter
   end
 
   def followed_user_show_link(activity)
-    h.link_to(User.find(activity.activable_id).profile.full_name, h.user_path(User.find(activity.activable_id)))
+    h.link_to(User.find(activity.activable_id).profile.full_name, h.user_path(activity.user))
   end
 
   def username

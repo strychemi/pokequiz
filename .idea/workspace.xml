@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d47f47b6-0500-4a44-bf6e-463a53b9fc57" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/support/controller_helper.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/presenters/user_presenter.rb" afterPath="$PROJECT_DIR$/app/presenters/user_presenter.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/controllers/users_controller_spec.rb" afterPath="$PROJECT_DIR$/spec/controllers/users_controller_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/rails_helper.rb" afterPath="$PROJECT_DIR$/spec/rails_helper.rb" />
     </list>
     <ignored path="pokequiz.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,10 +87,10 @@
       <file leaf-file-name="user_presenter.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/presenters/user_presenter.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2527646">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.4107425">
+              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
               <folding>
-                <marker date="1456510138000" expanded="true" signature="19:1658" placeholder=" ... end" />
+                <marker date="1456510242000" expanded="true" signature="19:1533" placeholder=" ... end" />
               </folding>
             </state>
           </provider>
@@ -1318,10 +1321,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/presenters/user_presenter.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2527646">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.4107425">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
           <folding>
-            <marker date="1456510138000" expanded="true" signature="19:1658" placeholder=" ... end" />
+            <marker date="1456510242000" expanded="true" signature="19:1533" placeholder=" ... end" />
           </folding>
         </state>
       </provider>
