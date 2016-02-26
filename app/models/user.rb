@@ -58,4 +58,8 @@ class User < ActiveRecord::Base
       where("")
     end
   end
+
+  def self.top_users
+    User.all.sort{ |u| u.answer_ratio * u.questions_answered }.reverse[0..9]
+  end
 end

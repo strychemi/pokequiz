@@ -21,9 +21,9 @@
 # ----------------------------------------
 
 TYPES = 18
-POKEMON = 10
+POKEMON = 20
 MULTIPLIER = 10
-GENERATE_TYPES_BOOL = true
+GENERATE_TYPES_BOOL = false
 GENERATE_POKEMON_BOOL = true
 GENERATE_USERS_BOOL = true
 GENERATE_CATEGORIES_BOOL = true
@@ -157,7 +157,7 @@ def generate_categories
   puts 'Generating categories'
 
   Category.create(name: 'photo')
-  # Category.create(name: 'type')
+  Category.create(name: 'type')
   # Category.create(name: 'effectiveness')
 end
 
@@ -168,10 +168,14 @@ end
 def generate_questions
   Question.destroy_all
 
-  puts 'Generating questions'
-
+  puts 'Generating photo questions'
   MULTIPLIER.times do
     Question.make_photo_question
+  end
+
+  puts 'Generating type questions'
+  MULTIPLIER.times do
+    Question.make_type_question
   end
 end
 

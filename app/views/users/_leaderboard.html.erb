@@ -14,7 +14,7 @@
 
       <% users.each do |user| %>
         <tr>
-          <td><%= user.profile.username %></td>
+          <td><%= link_to user.profile.username, user_path(user) %></td>
           <td><%= user.questions_answered %></td>
           <td><%= user.correct_answers %></td>
           <td><%= user.incorrect_answers %></td>
