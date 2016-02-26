@@ -40,7 +40,10 @@
       <% Result.hardest_category.each_with_index do |category| %>
         <tr>
           <td>
-            <%= category.name.titleize %>
+            <%= category[0].name.titleize %>
+          </td>
+          <td>
+            <%= "#{category[1]} Incorrect Answers" %>
           </td>
         </tr>
       <% end %>
@@ -51,7 +54,10 @@
       <% Result.easiest_category.each do |category| %>
         <tr>
           <td>
-            <%= category.name.titleize %>
+            <%= category[0].name.titleize %>
+          </td>
+          <td>
+            <%= "#{category[1]} Correct Answers" %>
           </td>
         </tr>
       <% end %>

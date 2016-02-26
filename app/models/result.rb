@@ -56,7 +56,7 @@ class Result < ActiveRecord::Base
                           ORDER BY question_count DESC
                           LIMIT 1"
                       )
-    cat.map{ |r| Category.find(r.category_id) }
+    cat.map{ |r| [ Category.find(r.category_id), r.question_count ] }
   end
 
   def self.easiest_category
@@ -70,7 +70,7 @@ class Result < ActiveRecord::Base
                           ORDER BY question_count DESC
                           LIMIT 1"
                       )
-    cat.map{ |r| Category.find(r.category_id) }
+    cat.map{ |r| [ Category.find(r.category_id), r.question_count ] }
   end
 
   def add_activity
