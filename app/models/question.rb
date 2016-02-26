@@ -79,4 +79,8 @@ class Question < ActiveRecord::Base
   def incorrect_results
     Result.where(question: self).where(result: false)
   end
+
+  def poke_from_solution
+    Pokemon.find_by_name(self.solution)
+  end
 end
