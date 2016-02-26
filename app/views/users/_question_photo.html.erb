@@ -1,0 +1,5 @@
+<% if r.question.category.name == 'photo' %>
+  <%= image_tag r.question.poke_from_solution.photo.photo.url(:thumb) %>
+<% elsif r.question.category.name == 'type' %>
+  <%= image_tag r.question.poke_from_type_question.photo.photo.url(:thumb) %>
+<% end %>
