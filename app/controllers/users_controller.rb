@@ -67,7 +67,7 @@ class UsersController < ApplicationController
   def user_params
     # TODO: update necessary params based on backend
     params.require(:user).permit(:email, :password, :password_confirmation,
-                                 :profile_attributes => [:user_id, :first_name, :last_name, :pokemon_id, :pokemon_type_id, :id, :username,
+                                 :profile_attributes => [:user_id, :first_name, :last_name, :pokemon_id, :pokemon_type, :id, :username,
                                                          :photo_attributes => [:photo]])
   end
 
