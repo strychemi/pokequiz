@@ -83,4 +83,10 @@ class Question < ActiveRecord::Base
   def poke_from_solution
     Pokemon.find_by_name(self.solution)
   end
+
+  def poke_from_type_question
+    poke_regex = /([\w]*)'/
+    poke_name = self.question.match(poke_regex)[1]
+    Pokemon.find_by_name(poke_name)
+  end
 end
