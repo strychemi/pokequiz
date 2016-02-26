@@ -27,7 +27,7 @@ class Result < ActiveRecord::Base
                           WHERE result = 'false'
                           GROUP BY question_id
                           ORDER BY question_count DESC
-                          LIMIT 10"
+                          LIMIT #{n}"
                       )
   end
 
@@ -41,7 +41,7 @@ class Result < ActiveRecord::Base
                           WHERE result = 'true'
                           GROUP BY question_id
                           ORDER BY question_count DESC
-                          LIMIT 10"
+                          LIMIT #{n}"
                       )
   end
 

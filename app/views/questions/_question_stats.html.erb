@@ -7,9 +7,9 @@
       Questions are ranked based on the number of times someone has gotten them correct or incorrect. More correct answers means the question is easier, more incorrect answers means it is harder. Categories are similarly ranked.
     </p>
 
-    <h3>Top 10 Hardest Questions</h3>
+    <h3>Top 3 Hardest Questions</h3>
     <table class="table table-striped">
-      <% Result.hardest_questions.each_with_index do |r, ri| %>
+      <% Result.hardest_questions(3).each_with_index do |r, ri| %>
         <tr>
           <td>
             <%= "#{ri + 1}. #{r.question.question}" %>
@@ -21,9 +21,9 @@
       <% end %>
     </table>
 
-    <h3>Top 10 Easiest Questions</h3>
+    <h3>Top 3 Easiest Questions</h3>
     <table class="table table-striped">
-      <% Result.easiest_questions.each_with_index do |r, ri| %>
+      <% Result.easiest_questions(3).each_with_index do |r, ri| %>
         <tr>
           <td>
             <%= "#{ri + 1}. #{r.question.question}" %>
@@ -35,9 +35,9 @@
       <% end %>
     </table>
 
-    <h3>Hardest Categories</h3>
+    <h3>Hardest Category</h3>
     <table class="table table-striped">
-      <% Result.hardest_categories(3).each_with_index do |category| %>
+      <% Result.hardest_categories(1).each_with_index do |category| %>
         <tr>
           <td>
             <%= category.name %>
@@ -46,9 +46,9 @@
       <% end %>
     </table>
 
-    <h3>Easiest Categories</h3>
+    <h3>Easiest Category</h3>
     <table class="table table-striped">
-      <% Result.easiest_categories(3).each do |category| %>
+      <% Result.easiest_categories(1).each do |category| %>
         <tr>
           <td>
             <%= category.name %>
@@ -59,12 +59,3 @@
 
   </section>
 </section>
-
-<% current_user.results.each_with_index do |r, ri| %>
-  <div class="col-xs-12">
-    <h3><%= "#{ri + 1}. #{r.question.question}" %></h3>
-    <table class="table">
-
-    </table>
-  </div>
-<% end %>
