@@ -72,24 +72,11 @@ class Question < ActiveRecord::Base
     choices
   end
 
-  #
-  # def self.make_effectiveness_question
-  #   attacker = PokemonType.all.sample.name
-  #   defender = PokemonType.all.sample.name
-  #   random_question = "What is #{attack}'s effectiveness vs #{defend}?"
-  #   solution = TypeRelationship.find(attack_type_id: attacker.id, defend_type_id: defender.id).effectiveness
-  #   if !Question.find_by_question_and_solution(random_question, solution)
-  #     Question.create(category: Category.where(:name => 'effectiveness'), question: random_question, solution: solution, frequency: 0)
-  #   end
-  #
-  #   answer_choices = []
-  #   # generates answer choices
-  #   until answer_choices.size == 3
-  #     wrong_choice = resource.constantize.all.sample.effectiveness
-  #     answer_choices << wrong_choice if (solution != wrong_choice  && !answer_choices.include?(wrong_choice))
-  #   end
-  #   answer_choices << solution
-  #   answer_choices.shuffle!
-  #   return ['effectiveness', random_question, solution, answer_choices]
-  # end
+  def correct_results
+    Result.where(question: self).where(result: true)
+  end
+
+  def incorrect_results
+    Result.where(question: self).where(result: false)
+  end
 end

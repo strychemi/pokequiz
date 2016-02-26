@@ -1,7 +1,7 @@
 <% present @user do |user_presenter| %>
 <section class="row">
   <section class="col-md-12">
-    <%= image_tag @user.profile.photo.photo.url(:medium) if @user.profile.photo %>
+    <%= user_presenter.user_show_photo %>
     <h2><%= user_presenter.profile.full_name %> <%= user_presenter.follow_button %></h2>
 
 
@@ -28,7 +28,7 @@
     </table>
 
     <% if current_user && current_user.id == @user.id %>
-      <p><%= link_to "Edit User", "#{}", "data-toggle" => "modal", "data-target" => "#signinform", class: "btn btn-block btn-primary" %></p>
+      <p><%= link_to "Edit User", "#", "data-toggle" => "modal", "data-target" => "#signinform", class: "btn btn-block btn-primary" %></p>
       <p><%= link_to "Delete User", user_path, method: :delete, class: "btn btn-block btn-danger", data: { confirm: "Are you sure?" } %></p>
 
       <%= render partial: "modaluserform", locals: { user: @user } %>

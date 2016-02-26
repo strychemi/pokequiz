@@ -7,6 +7,14 @@ class UserPresenter < BasePresenter
 
 
 
+  def user_show_photo
+    if !!user.profile.photo
+      h.image_tag(user.profile.photo.photo.url(:medium))
+    else
+      h.link_to("Choose a Photo", "#", "data-toggle" => "modal", "data-target" => "#signinform", class: "btn btn-block btn-primary" )
+    end
+  end
+
   def user_show_link
     h.link_to(user.profile.full_name, h.user_path(user))
   end

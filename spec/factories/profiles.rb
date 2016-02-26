@@ -5,6 +5,6 @@ FactoryGirl.define do
     sequence(:username) { |n| "firstlast#{n}"}
     sequence(:user_id) { |n| n }
     pokemon_id(1)
-    type_id(1)
+    pokemon_type_id(1)
   end
 end
