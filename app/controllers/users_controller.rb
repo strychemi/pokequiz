@@ -4,7 +4,6 @@ class UsersController < ApplicationController
     if signed_in_user?
       @activities = Activity.all.order("created_at DESC").limit(10)
       @users = User.all
-      @searched_users = User.search(query_params[:query])
     else
       redirect_to new_user_path
     end
@@ -64,10 +63,6 @@ class UsersController < ApplicationController
 
 
   private
-
-  def query_params
-    params.permit(query: [:email])
-  end
 
   def user_params
     # TODO: update necessary params based on backend

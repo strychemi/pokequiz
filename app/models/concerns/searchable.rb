@@ -5,8 +5,8 @@ module Searchable
     def search(query_hash)
       results = self.where("")
       if query_hash
-        query_hash.each do |column, term|
-          results = results.where("#{column} LIKE ?", "%#{term}%") if term.present?
+        query_hash.each do |col, value|
+          results = results.where("#{col} LIKE ?", "%#{value}%") if value.present?
         end
       end
       results
