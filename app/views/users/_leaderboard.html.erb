@@ -9,7 +9,7 @@
         <th>Number Answered</th>
         <th>Number Correct</th>
         <th>Number Incorrect</th>
-        <th>Ratio (Correct/Total)</th>
+        <th>Percent Correct</th>
       </tr>
 
       <% users.each do |user| %>
@@ -18,7 +18,7 @@
           <td><%= user.questions_answered %></td>
           <td><%= user.correct_answers %></td>
           <td><%= user.incorrect_answers %></td>
-          <td><%= user.answer_ratio.round(2) %></td>
+          <td><%= "#{(100*(user.answer_ratio.round(2))).to_i}%" %></td>
         </tr>
       <% end %>
     </table>
