@@ -144,9 +144,9 @@ end
 # ----------------------------------------
 def generate_categories
   Category.destroy_all
-  2.times do
-    Category.create(name: Faker::Hipster.word)
-  end
+  Category.create(name: 'photo')
+  Category.create(name: 'type')
+  Category.create(name: 'effectiveness')
 end
 
 # ----------------------------------------

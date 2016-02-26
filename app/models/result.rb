@@ -2,6 +2,7 @@ class Result < ActiveRecord::Base
   include AnswerStats
 
   after_create :add_activity
+  after_create :increase_question_frequency
 
   belongs_to :user
   belongs_to :question
@@ -40,5 +41,11 @@ class Result < ActiveRecord::Base
     act.event = self.result
     act.save
     logger.debug "Generated result activity: {#{act.event}} Answer Received"
+  end
+
+  def increase_question_frequency
+    q = Question.find_by_id(self.question_id)
+    q.frequency += 1
+    q.save
   end
 end

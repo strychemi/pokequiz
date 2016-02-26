@@ -1,17 +1,17 @@
-<%= form_form @result do |result_field| %>
+<%= form_tag '/results', method: :post %>
 
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
         <div class="panel panel-default">
 
           <div class="panel-heading">
-            <h2 class="panel-title">Question</h2>
+            <h2 class="panel-title"> Question </h2>
           </div>
 
           <div class="panel-body">
 
             <div class="row">
-              Question Body
+            <%= question[1] %>
             </div>
 
           </div>
@@ -19,11 +19,16 @@
           <div class="panel-footer">
 
             <div class="row">
-              <%= result_field.collection_radio_buttons :answers, Question.category, :value, :name%>
+              <% question[3].each do |choice| %>
+                  <%= radio_button_tag "result[user_response]", choice %>
+                  <%= label_tag choice %>
+                  <br>
+
+              <% end %>
             </div>
 
             <div class="row">
-              <%= result_field.submit "Submit Answer", class: 'btn btn-warning btn-lg' %>
+              <%= submit_tag "Submit Answer", class: "btn btn-warning btn-lg" %>
             </div>
 
           </div>
@@ -31,4 +36,4 @@
         </div>
       </div>
     </div>
-<% end %>
+
