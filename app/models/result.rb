@@ -47,5 +47,6 @@ class Result < ActiveRecord::Base
     q = Question.find_by_id(self.question_id)
     q.frequency += 1
     q.save
+    logger.debug "Question #{q.question} asked"
   end
 end
