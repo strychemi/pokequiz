@@ -1,25 +1,38 @@
 class FollowingsController < ApplicationController
+  before_action :require_login, only: [:create, :destroy]
 
   def create
-    @follow = Following.new(follower: current_user, followed: User.find(params[:id]))
-    if @follow.save
-      flash[:success] = "Followed #{User.find(params[:id]).profile.full_name}"
-      redirect_to users_path
+    followed = User.find_by_id(params[:id])
+    if followed
+      following = Following.new(follower_id: current_user.id, followed_id: followed.id)
+      if following.save
+        flash[:success] = "Followed #{followed.profile.full_name}"
+        redirect_to :back
+      else
+        flash[:danger] = "Could not follow" +
+          following.errors.full_messages.join(', ')
+        redirect_to request.referrer
+      end
     else
-      flash[:error] = "Could not follow" +
-          @follow.errors.full_messages.join(', ')
-      redirect_to request.referrer
+      flash[:danger] = "User doesn't exist!"
+      redirect_to users_path
     end
   end
 
   def destroy
-    @follow = Following.find(params[:id])
-    if @follow.destroy
-      flash[:success] = "You are no longer following this user"
-      redirect_to users_path
+    followed = User.find_by_id(params[:id])
+    if followed
+      following = Following.find_by(follower_id: current_user.id, followed_id: followed.id)
+      if following && following.destroy
+        flash[:success] = "You are no longer following this user"
+        redirect_to :back
+      else
+        flash[:danger] = "Unable to remove following because you weren't following the user to begin with!"
+        redirect_to users_path
+      end
     else
-      flash[:error] = "Unable to remove following"
-      redirect_to request.referrer
+      flash[:danger] = "User doesn't exist!"
+      redirect_to users_path
     end
   end
 

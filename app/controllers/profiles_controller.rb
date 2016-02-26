@@ -1,20 +1,21 @@
 class ProfilesController < ApplicationController
 
+
   # TODO: fill in methods, or do everything from the user create/show/update/destroy
 
-  def create
-
-  end
-
-
-  def update
-
-  end
-
-
-  def destroy
-
-  end
+  # def create
+  #
+  # end
+  #
+  #
+  # def update
+  #
+  # end
+  #
+  #
+  # def destroy
+  #
+  # end
 
 
   private

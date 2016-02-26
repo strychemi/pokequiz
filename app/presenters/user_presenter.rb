@@ -54,9 +54,9 @@ class UserPresenter < BasePresenter
   def follow_button
     unless user == h.current_user
       if followed?(h.get_user)
-        h.link_to("Follow Me", h.followings_path(:id => h.get_user.id), method: 'post', class: 'btn btn-lg btn-primary')
+        h.link_to("Follow Me", h.followings_path(id: h.get_user.id), method: 'post', class: 'btn btn-lg btn-primary')
       elsif !(followed?(h.get_user))
-        h.link_to("Unfollow Me", h.following_path(Following.where(follower_id: h.current_user.id, followed_id: h.get_user.id)[0]), method: 'delete', class: 'btn btn-lg btn-warning')
+        h.link_to("Unfollow Me", h.following_path( h.current_user.followeds.find_by_id(h.get_user.id )), method: 'delete', class: 'btn btn-lg btn-warning')
       end
     end
   end

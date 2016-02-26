@@ -37,7 +37,7 @@ class ResultsController < ApplicationController
       flash[:success] = "Answer submitted"
       redirect_to result_path(@result)
     else
-      flash[:error] = "There was a problem with your answer"
+      flash[:danger] = "There was a problem with your answer"
       redirect_to new_result_path
     end
   end

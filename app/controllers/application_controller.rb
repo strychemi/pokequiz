@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by_auth_token(cookies[:auth_token]) if cookies[:auth_token]
   end
   helper_method :current_user
-  
+
   def signed_in_user?
     !!current_user
   end
@@ -38,15 +38,19 @@ class ApplicationController < ActionController::Base
 
   def require_login
     unless signed_in_user?
-      flash[:error] = 'Unauthorized, please sign in'
+      flash[:danger] = 'Unauthorized, please sign in'
       redirect_to login_path
       logger.debug "Someone tried to access a page that required a login"
     end
   end
 
+  def require_logout
+    redirect_to user_path(current_user) if signed_in_user?
+  end
+
   def require_current_user
     unless (params[:id] == current_user.id.to_s) || (params[:user_id] == current_user.id.to_s)
-      flash[:error] = "You're not authorized to view this"
+      flash[:danger] = "You're not authorized to view this"
       redirect_to request.referrer || root_path
       logger.debug "Someone tried to access a page that required the current user"
     end

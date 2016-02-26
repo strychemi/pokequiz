@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  before_action :require_login, except: [:index, :new, :create]
+  before_action :require_logout, only: [:new]
+  before_action :require_current_user, only: [:update, :destroy]
+
 
   def index
     if signed_in_user?
@@ -11,7 +15,11 @@ class UsersController < ApplicationController
 
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
+    unless @user
+      flash[:danger] = "Sorry! That user doesn't exist!"
+      redirect_to users_path
+    end
   end
 
 
