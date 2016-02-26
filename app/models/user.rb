@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   validates :password,
           :length => { :in => 8..24 },
             :allow_nil => true
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
 
   validates :profile, presence: true
 
@@ -26,10 +26,10 @@ class User < ActiveRecord::Base
                                 :reject_if => :all_blank
 
 
+  after_create :generate_token
+
   def generate_token
-    begin
-    self[:auth_token] = SecureRandom.urlsafe_base64
-    end while User.exists?(auth_token: self[:auth_token])
+    self.auth_token = SecureRandom.uuid + "-" +  Digest::MD5.hexdigest("#{email}")
   end
 
   def regenerate_auth_token
