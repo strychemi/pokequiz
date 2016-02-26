@@ -6,11 +6,11 @@ module AnswerStats
   end
 
   def correct_answers
-    results.where('result = true').count
+    results.where("result = 'true'").count
   end
 
   def incorrect_answers
-    results.where('result = false').count
+    results.where("result = 'false'").count
   end
 
   def answer_ratio

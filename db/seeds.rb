@@ -23,8 +23,8 @@
 TYPES = 18
 POKEMON = 5
 MULTIPLIER = 10
-GENERATE_TYPES_BOOL = false
-GENERATE_POKEMON_BOOL = false
+GENERATE_TYPES_BOOL = true
+GENERATE_POKEMON_BOOL = true
 GENERATE_USERS_BOOL = true
 GENERATE_CATEGORIES_BOOL = true
 GENERATE_QUESTIONS_BOOL = true
@@ -132,7 +132,7 @@ def generate_users
     last_name = Faker::Name.last_name
     username = Faker::Company.name
     email = Faker::Internet.free_email("#{first_name} #{last_name}")
-   
+
     user = User.new(email: email, password: 'qwerqwer')
     user.build_profile(first_name: first_name, last_name: last_name, username: username)
     user.save!

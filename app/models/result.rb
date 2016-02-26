@@ -17,11 +17,11 @@ class Result < ActiveRecord::Base
 
   def self.hardest_questions(n = 10)
     # Select questions where
-    Result.joins(:question).select(:question).where("result = true").group("question_id").count("*")
+    Result.joins(:question).select(:question).where("result = 'true'").group("question_id").count("*")
   end
 
   def self.easiest_questions(n = 10)
-    Result.joins(:question).select(:question).where("result = false").group("question_id").count("*")
+    Result.joins(:question).select(:question).where("result = 'false'").group("question_id").count("*")
   end
 
   def self.hardest_categories(n = 2)
