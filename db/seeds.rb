@@ -102,21 +102,21 @@ end
 # ----------------------------------------
 # Populate database with users, profiles
 # ----------------------------------------
-
-MULTIPLIER.times do
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
-  username = Faker::Company.name
-
-  u = User.new
-  u.email = Faker::Internet.free_email("#{first_name} #{last_name}")
-  u.password = "qwerqwer"
-  u.save
-
-  up = Profile.new
-  up.user_id = u.id
-  up.first_name = first_name
-  up.last_name = last_name
-  up.username = username
-  up.save
-end
+#
+# MULTIPLIER.times do
+#   first_name = Faker::Name.first_name
+#   last_name = Faker::Name.last_name
+#   username = Faker::Company.name
+#
+#   u = User.new
+#   u.email = Faker::Internet.free_email("#{first_name} #{last_name}")
+#   u.password = "qwerqwer"
+#   u.save
+#
+#   up = Profile.new
+#   up.user_id = u.id
+#   up.first_name = first_name
+#   up.last_name = last_name
+#   up.username = username
+#   up.save
+# end

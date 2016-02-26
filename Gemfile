@@ -20,6 +20,7 @@ gem 'httparty'
 gem 'bootstrap-sass'
 gem 'paperclip', '~> 4.3'
 gem 'mechanize'
+gem 'faker'
 
 group :development, :test do
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
