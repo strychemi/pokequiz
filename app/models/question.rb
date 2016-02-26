@@ -93,4 +93,8 @@ class Question < ActiveRecord::Base
   #   answer_choices.shuffle!
   #   return ['effectiveness', random_question, solution, answer_choices]
   # end
+
+  def poke_from_solution
+    Pokemon.find_by_name(self.solution)
+  end
 end
