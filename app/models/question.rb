@@ -6,4 +6,8 @@ class Question < ActiveRecord::Base
 
   validates :solution, :question, :category, :frequency, presence: true
   validates :question, uniqueness: :true
+
+  def question_generator
+
+  end
 end
