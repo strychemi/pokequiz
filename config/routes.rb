@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'users#index'
 
   resources :users
-
+  resources :searches, only: [:create, :index]
 
   resources :profiles, except: [ :index, :new ]
 
