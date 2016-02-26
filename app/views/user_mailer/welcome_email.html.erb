@@ -1,11 +1,11 @@
 <h1>Thanks for Signing Up!</h1>
 
 <p>
-  Hello <%= @user.profile.fullname %>,
+  Hello <%= @user.profile.first_name %> <%= @user.profile.last_name %>,
 </p>
 
 <p>
   Thanks for signing up. Pikachu, Squirtle, and everyone else is waiting inside. What are you waiting for?!
 </p>
 
-<%= link_to "Visit your account now", user_path(@user) %>
+<%= link_to "Visit your account now", user_url(@user) %>
