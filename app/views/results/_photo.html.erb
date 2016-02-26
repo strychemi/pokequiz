@@ -20,7 +20,7 @@
         <div class="row">
           <div class="col-xs-12">
             <%= form_tag results_path, method: :post, class: "form-group" do %>
-              <%= hidden_field_tag "result[question_id]", question.id %>
+
               <% question.get_choices.each do |choice| %>
                   <%= radio_button_tag "result[user_response]", choice %>
                   <%= label_tag choice %>
