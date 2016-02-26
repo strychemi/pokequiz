@@ -4,6 +4,7 @@ class CreatePokemons < ActiveRecord::Migration
       t.string :name, null: false
       t.integer :first_type_id, null: false
       t.integer :second_type_id
+      t.integer :photo_id
 
       t.index :name, unique: true
 
