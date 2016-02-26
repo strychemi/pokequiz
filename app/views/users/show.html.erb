@@ -1,5 +1,36 @@
 <section class="row">
   <section class="col-md-12">
+    <%= image_tag @user.profile.photo.photo.url(:medium) if @user.profile.photo %>
+    <h2><%= "#{@user.profile.first_name} #{@user.profile.last_name}" %></h2>
+
+
+    <table class="table">
+      <tr>
+        <td>Username</td>
+        <td><%= @user.profile.username %></td>
+      </tr>
+
+      <tr>
+        <td>Email</td>
+        <td><%= @user.email %></td>
+      </tr>
+
+      <tr>
+        <td>Favorite Pokemon</td>
+        <td><%= @user.profile.pokemon.name %></td>
+      </tr>
+
+      <tr>
+        <td>Favorite Pokemon Type</td>
+        <td><%= Type.find( @user.profile.type_id ).name %></td>
+      </tr>
+    </table>
+
+    <p><%= link_to "Edit User", "#{}", "data-toggle" => "modal", "data-target" => "#signinform", class: "btn btn-block btn-primary" %></p>
+    <p><%= link_to "Delete User", user_path, method: :delete, class: "btn btn-block btn-danger" %></p>
+
+
+    <%= render partial: "modaluserform.html.erb", locals: { user: @user } %>
 
   </section>
 </section>
