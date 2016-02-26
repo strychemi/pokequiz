@@ -37,7 +37,7 @@
 
     <h3>Hardest Categories</h3>
     <table class="table table-striped">
-      <% Result.hardest_categories.each_with_index do |category| %>
+      <% Result.hardest_categories(3).each_with_index do |category| %>
         <tr>
           <td>
             <%= category.name %>
@@ -48,7 +48,7 @@
 
     <h3>Easiest Categories</h3>
     <table class="table table-striped">
-      <% Result.easiest_categories.each do |category| %>
+      <% Result.easiest_categories(3).each do |category| %>
         <tr>
           <td>
             <%= category.name %>
@@ -60,7 +60,7 @@
   </section>
 </section>
 
-<% @results.each_with_index do |r, ri| %>
+<% current_user.results.each_with_index do |r, ri| %>
   <div class="col-xs-12">
     <h3><%= "#{ri + 1}. #{r.question.question}" %></h3>
     <table class="table">
