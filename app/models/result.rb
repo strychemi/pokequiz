@@ -15,20 +15,20 @@ class Result < ActiveRecord::Base
 
   # TODO: Come back when we have seeds to test on
   
-  # def hardest_questions(n = 10)
-  #   # Select questions where 
-  #   Result.select('question').group(:question).order('answer_ratio ASC').limit(n)
-  # end
+  def hardest_questions(n = 10)
+    # Select questions where
+    Result.select('question').group(:question).order('answer_ratio ASC').limit(n)
+  end
   
-  # def easiest_questions(n = 10)
+  def easiest_questions(n = 10)
 
-  # end
+  end
 
-  # def hardest_categories(n = 2)
+  def hardest_categories(n = 2)
 
-  # end
+  end
   
-  # def easiest_categories(n = 2)
+  def easiest_categories(n = 2)
 
-  # end
+  end
 end
