@@ -1,5 +1,6 @@
 class SearchesController < ApplicationController
-
+  before_action :require_login
+  
   def index
     @search = User.search(params[:query])
   end
