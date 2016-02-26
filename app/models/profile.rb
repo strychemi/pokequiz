@@ -1,5 +1,5 @@
 class Profile < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, inverse_of: :profile
   belongs_to :photo, foreign_key: :avatar_id
   belongs_to :pokemon
 

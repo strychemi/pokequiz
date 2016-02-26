@@ -40,6 +40,7 @@ group :development do
   gem 'better_errors', '2.1.1'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'faker'
 end
 
 group :production do
