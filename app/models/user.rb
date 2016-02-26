@@ -63,4 +63,7 @@ class User < ActiveRecord::Base
     User.select("user_id, COUNT(user_id) AS top_count").joins(:results).where("result = 'true'").order("top_count DESC").group("user_id").map{ |r| User.find(r.user_id)}
   end
 
+  def self.top_scorers
+    User.all.sort{ |u| u.answer_ratio * u.correct_answers }.reverse
+  end
 end
