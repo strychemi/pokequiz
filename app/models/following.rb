@@ -16,6 +16,7 @@ class Following < ActiveRecord::Base
     act.user_id = self.follower_id
     act.event = "#{User.find(self.follower_id).profile.full_name} followed #{User.find(self.followed_id).profile.full_name}"
     act.save
+    logger.debug "Generated result activity: {#{act.event}}"
   end
 
 end

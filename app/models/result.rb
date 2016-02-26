@@ -39,5 +39,6 @@ class Result < ActiveRecord::Base
     act.user_id = self.user_id
     act.event = self.result
     act.save
+    logger.debug "Generated result activity: {#{act.event}} Answer Received"
   end
 end

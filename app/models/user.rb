@@ -46,6 +46,7 @@ class User < ActiveRecord::Base
     def send_welcome_email(id)
       user = User.find(id)
       UserMailer.welcome_email(user).deliver!
+      logger.debug "Sent new user #{self.profile.full_name} a welcome email"
     end
     handle_asynchronously :send_welcome_email
   end
