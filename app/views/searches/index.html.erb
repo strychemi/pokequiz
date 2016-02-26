@@ -1,3 +1,16 @@
-<% @search.each do |searched_user| %>
-  <p><%= searched_user.email %></p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Score</th>
+      </tr>
+      <% @search.each do |searched_user| %>
+        <tr>
+          <td><%= link_to "#{searched_user.profile.full_name}", user_path(searched_user) %></td>
+          <td><%= "#{searched_user.answer_ratio.round(2) * searched_user.correct_answers}" %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
