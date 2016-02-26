@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe Pokemon, type: :model do
+  let(:pokemon_type){ build(:pokemon_type)}
   let(:pokemon){ build(:pokemon, first_type_id: PokemonType.find_by_name('grass').id) }
 
   describe 'attributes' do
@@ -15,7 +16,7 @@ describe Pokemon, type: :model do
     end
   end
 
-  describe 'accessors' do
+  describe 'associations' do
     it 'has_many profiles' do
       PokemonType.create(name: 'grass')
       expect(pokemon).to respond_to('profiles')
