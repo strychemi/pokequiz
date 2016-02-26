@@ -2,7 +2,7 @@ class SearchesController < ApplicationController
   before_action :require_login
   
   def index
-    @search = User.search(params[:query])
+    @search = User.search(params[:query]).top_scorers
   end
 
   def create

@@ -62,4 +62,8 @@ class User < ActiveRecord::Base
   def self.top_users
     User.all.sort{ |u| u.answer_ratio * u.questions_answered }.reverse[0..9]
   end
+
+  def self.top_scorers
+    User.all.sort{ |u| u.answer_ratio * u.correct_answers }.reverse
+  end
 end
