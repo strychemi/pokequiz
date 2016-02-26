@@ -14,21 +14,21 @@ class Result < ActiveRecord::Base
   end
 
   # TODO: Come back when we have seeds to test on
-  
-  def hardest_questions(n = 10)
+
+  def self.hardest_questions(n = 10)
     # Select questions where
-    Result.select('question').group(:question).order('answer_ratio ASC').limit(n)
-  end
-  
-  def easiest_questions(n = 10)
-
+    Result.joins(:question).select(:question).where("result = true").group("question_id").count("*")
   end
 
-  def hardest_categories(n = 2)
-
+  def self.easiest_questions(n = 10)
+    Result.joins(:question).select(:question).where("result = false").group("question_id").count("*")
   end
-  
-  def easiest_categories(n = 2)
 
+  def self.hardest_categories(n = 2)
+    []
+  end
+
+  def self.easiest_categories(n = 2)
+    []
   end
 end
