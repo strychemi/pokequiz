@@ -19,7 +19,7 @@ class ResultsController < ApplicationController
 
   def new
     @result = Result.new
-    @question = Question.make_photo_question
+    @question = Question.all.sample # seeding questions
     # Implement as below for more question categories
     # case rand(1..Category.all.size)
     # when 1
