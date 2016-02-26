@@ -19,12 +19,13 @@ class Question < ActiveRecord::Base
     if question
       return question
     else
-      question = Question.new(question: random_question, solution: solution, category_id: 1, frequency: 0)
+      photo_category = Category.find_by_name('photo')
+      question = Question.new(question: random_question, solution: solution, category_id: photo_category.id, frequency: 0)
       choice = generate_wrong_choices("Pokemon", solution)
       question.option_1 = choice[0]
       question.option_2 = choice[1]
       question.option_3 = choice[2]
-      question.save
+      question.save!
       return question
     end
   end

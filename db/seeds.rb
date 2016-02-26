@@ -21,10 +21,10 @@
 # ----------------------------------------
 
 TYPES = 18
-POKEMON = 5
+POKEMON = 10
 MULTIPLIER = 10
-GENERATE_TYPES_BOOL = true
-GENERATE_POKEMON_BOOL = true
+GENERATE_TYPES_BOOL = false
+GENERATE_POKEMON_BOOL = false
 GENERATE_USERS_BOOL = true
 GENERATE_CATEGORIES_BOOL = true
 GENERATE_QUESTIONS_BOOL = true
@@ -115,6 +115,13 @@ def generate_pokemon
     pokemon = @pokeapi.pokemon_complete
     p = Pokemon.new(name: pokemon[:name], first_type_id: PokemonType.find_by_name(pokemon[:types][0]).id)
     p.second_type_id = PokemonType.find_by_name(pokemon[:types][1]).id if pokemon[:types][1]
+
+    scraper = PokeScraper.new
+    poke_photo = Photo.new
+    poke_pic = scraper.poke_pic(p.name)
+    poke_photo.photo_from_url(poke_pic)
+    poke_photo.save!
+    p.photo_id = poke_photo.id
     p.save!
   end
 end
@@ -124,8 +131,10 @@ end
 # ----------------------------------------
 
 def generate_users
-  # User.destroy_all
-  # Profile.destroy_all
+  User.destroy_all
+  Profile.destroy_all
+
+  puts 'Generating users'
 
   MULTIPLIER.times do
     first_name = Faker::Name.first_name
@@ -144,6 +153,9 @@ end
 # ----------------------------------------
 def generate_categories
   Category.destroy_all
+
+  puts 'Generating categories'
+
   Category.create(name: 'photo')
   # Category.create(name: 'type')
   # Category.create(name: 'effectiveness')
@@ -155,10 +167,11 @@ end
 
 def generate_questions
   Question.destroy_all
+
+  puts 'Generating questions'
+
   MULTIPLIER.times do
-    question = Faker::Lorem.sentence
-    solution = Faker::Lorem.sentence
-    Question.create(question: question, solution: solution, category_id: Category.all.sample.id, frequency: 0)
+    Question.make_photo_question
   end
 end
 
@@ -167,6 +180,9 @@ end
 # ----------------------------------------
 def generate_results
   Result.destroy_all
+
+  puts 'Generating results'
+
   (MULTIPLIER * 3).times do
     user_id = User.all.sample.id
     question_id = Question.all.sample.id
@@ -179,5 +195,5 @@ generate_types if GENERATE_TYPES_BOOL
 generate_pokemon if GENERATE_POKEMON_BOOL
 generate_users if GENERATE_USERS_BOOL
 generate_categories if GENERATE_CATEGORIES_BOOL
-# generate_questions if GENERATE_QUESTIONS_BOOL
-# generate_results if GENERATE_RESULTS_BOOL
+generate_questions if GENERATE_QUESTIONS_BOOL
+generate_results if GENERATE_RESULTS_BOOL
