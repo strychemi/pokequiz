@@ -71,4 +71,9 @@ class UsersController < ApplicationController
                                                          :photo_attributes => [:photo]])
   end
 
+  def get_user
+    User.find(params[:id])
+  end
+  helper_method :get_user
+
 end

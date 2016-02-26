@@ -21,7 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
   def sign_out
-    logger.debug "User #{@current_user.profile.full_name} has signed out."
     @current_user = nil
     cookies.permanent[:auth_token] = cookies[:auth_token] = nil
     @current_user.nil? && cookies[:auth_token].nil?
