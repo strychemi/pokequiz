@@ -39,6 +39,14 @@ class Question < ActiveRecord::Base
     return choices
   end
 
+  def correct_results
+    Result.where(question: self).where(result: true)
+  end
+
+  def incorrect_results
+    Result.where(question: self).where(result: false)
+  end
+
   # def self.make_photo_question
   #   random_question = "What is this pokemon?"
   #   answer_choices = []

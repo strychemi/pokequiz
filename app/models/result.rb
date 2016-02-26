@@ -19,12 +19,30 @@ class Result < ActiveRecord::Base
   # TODO: Come back when we have seeds to test on
 
   def self.hardest_questions(n = 10)
-    # Select questions where
-    Result.joins(:question).select(:question).where("result = 'true'").group("question_id").count("*")
+    Result.find_by_sql("SELECT question_id,
+                          COUNT(question_id) AS question_count
+                          FROM results
+                          JOIN questions
+                            ON question_id = questions.id
+                          WHERE result = 'false'
+                          GROUP BY question_id
+                          ORDER BY question_count DESC
+                          LIMIT 10"
+                      )
   end
 
   def self.easiest_questions(n = 10)
-    Result.joins(:question).select(:question).where("result = 'false'").group("question_id").count("*")
+    Result.find_by_sql("SELECT question_id,
+                          COUNT(question_id)
+                          AS question_count
+                          FROM results
+                          JOIN questions
+                            ON question_id = questions.id
+                          WHERE result = 'true'
+                          GROUP BY question_id
+                          ORDER BY question_count DESC
+                          LIMIT 10"
+                      )
   end
 
   def self.hardest_categories(n = 2)
