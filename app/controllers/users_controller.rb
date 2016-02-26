@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def index
     if signed_in_user?
       @activities = Activity.followed_activity_list(current_user)
-      @users = User.all
+      @users = User.top_users
     else
       redirect_to new_user_path
     end
