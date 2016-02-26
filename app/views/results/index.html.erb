@@ -6,7 +6,7 @@
         <table class="table">
           <tr>
             <td>
-              <%= image_tag r.question.poke_from_solution.photo.photo.url(:thumb) %>
+              <%= render partial: 'question_photo', locals: {r: r} %>
               <td>
               <td><strong><%= "[#{r.question.solution}]" %></strong></td>
               <td><%= r.question.option_1 %></td>
