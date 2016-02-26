@@ -15,7 +15,7 @@
             <%= "#{ri + 1}. #{r.question.question}" %>
           </td>
           <td>
-            <%= image_tag Pokemon.find_by_name(r.question.solution).photo.photo.url(:thumb) %>
+            <%= image_tag r.question.poke_from_solution.photo.photo.url(:thumb) %>
           </td>
         </tr>
       <% end %>
