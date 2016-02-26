@@ -1,5 +1,5 @@
 <div class="container">
 
-  <%= render partial: "#{@question[0]}", locals: {question: @question} %>
+  <%= render partial: "#{@question.category.name}", locals: { question: @question, result: @result } %>
 
 </div>

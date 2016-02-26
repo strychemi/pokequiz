@@ -27,11 +27,12 @@
       </tr>
     </table>
 
-    <p><%= link_to "Edit User", "#{}", "data-toggle" => "modal", "data-target" => "#signinform", class: "btn btn-block btn-primary" %></p>
-    <p><%= link_to "Delete User", user_path, method: :delete, class: "btn btn-block btn-danger" %></p>
+    <% if current_user && current_user.id == @user.id %>
+      <p><%= link_to "Edit User", "#{}", "data-toggle" => "modal", "data-target" => "#signinform", class: "btn btn-block btn-primary" %></p>
+      <p><%= link_to "Delete User", user_path, method: :delete, class: "btn btn-block btn-danger" %></p>
 
-
-    <%= render partial: "modaluserform", locals: { user: @user } %>
+      <%= render partial: "modaluserform", locals: { user: @user } %>
+    <% end %>
 
   </section>
 </section>

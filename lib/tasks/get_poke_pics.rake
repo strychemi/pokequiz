@@ -11,7 +11,7 @@ namespace :poke do
       photo.save
       poke.photo_id = photo.id
       poke.save
-      puts "Scraped and saved image for #{pokemon}"
+      puts "Scraped and saved image for #{poke.name}"
     end
   end
 end

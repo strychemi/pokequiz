@@ -145,8 +145,8 @@ end
 def generate_categories
   Category.destroy_all
   Category.create(name: 'photo')
-  Category.create(name: 'type')
-  Category.create(name: 'effectiveness')
+  # Category.create(name: 'type')
+  # Category.create(name: 'effectiveness')
 end
 
 # ----------------------------------------
@@ -179,5 +179,5 @@ generate_types if GENERATE_TYPES_BOOL
 generate_pokemon if GENERATE_POKEMON_BOOL
 generate_users if GENERATE_USERS_BOOL
 generate_categories if GENERATE_CATEGORIES_BOOL
-generate_questions if GENERATE_QUESTIONS_BOOL
-generate_results if GENERATE_RESULTS_BOOL
+# generate_questions if GENERATE_QUESTIONS_BOOL
+# generate_results if GENERATE_RESULTS_BOOL

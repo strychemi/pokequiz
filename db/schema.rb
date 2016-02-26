@@ -106,6 +106,9 @@ ActiveRecord::Schema.define(version: 20160226020334) do
   create_table "questions", force: :cascade do |t|
     t.string   "question",    null: false
     t.string   "solution",    null: false
+    t.string   "option_1",    null: false
+    t.string   "option_2",    null: false
+    t.string   "option_3",    null: false
     t.integer  "category_id", null: false
     t.integer  "frequency",   null: false
     t.datetime "created_at",  null: false
