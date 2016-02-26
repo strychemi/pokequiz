@@ -3,7 +3,7 @@ class ResultsController < ApplicationController
 
 
   def show
-    @result = "test" #Result.find(params[:id])
+    @result = Result.find(params[:id])
   end
 
   def new
@@ -35,7 +35,7 @@ class ResultsController < ApplicationController
     @result.question_id = @question.id
     if @result.save
       flash[:success] = "Answer submitted"
-      result_path(@result)
+      redirect_to result_path(@result)
     else
       flash[:error] = "There was a problem with your answer"
       redirect_to new_result_path

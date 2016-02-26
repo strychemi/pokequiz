@@ -12,7 +12,7 @@ class Question < ActiveRecord::Base
     answer_choices = []
     solution = Pokemon.all.sample.name
     # front end make sure to pull image based on solution for this category of question
-    if !Question.where(question: random_question, solution:solution)
+    unless Question.where(question: random_question, solution:solution).first
       Question.create!(category: Category.where(:name => 'photo').first, question: random_question, solution: solution, frequency: 0)
     end
     # generates answer choices

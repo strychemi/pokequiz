@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226074429) do
+ActiveRecord::Schema.define(version: 20160226020334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,10 +69,19 @@ ActiveRecord::Schema.define(version: 20160226074429) do
     t.datetime "updated_at",         null: false
   end
 
+  create_table "pokemon_types", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "pokemon_types", ["name"], name: "index_pokemon_types_on_name", using: :btree
+
   create_table "pokemons", force: :cascade do |t|
     t.string   "name",           null: false
     t.integer  "first_type_id",  null: false
     t.integer  "second_type_id"
+    t.integer  "photo_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -124,14 +133,6 @@ ActiveRecord::Schema.define(version: 20160226074429) do
   end
 
   add_index "type_relationships", ["attack_type_id", "defend_type_id"], name: "index_type_relationships_on_attack_type_id_and_defend_type_id", unique: true, using: :btree
-
-  create_table "types", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "types", ["name"], name: "index_types_on_name", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
