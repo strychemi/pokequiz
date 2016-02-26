@@ -3,7 +3,7 @@ class CreateResults < ActiveRecord::Migration
     create_table :results do |t|
       t.integer :user_id, null: false
       t.integer :question_id, null: false
-      t.boolean :result, null: false
+      t.string :result, null: false
 
       t.index [:user_id, :question_id]
       t.timestamps null: false

@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 20160225210609) do
   create_table "results", force: :cascade do |t|
     t.integer  "user_id",     null: false
     t.integer  "question_id", null: false
-    t.boolean  "result",      null: false
+    t.string   "result",      null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
