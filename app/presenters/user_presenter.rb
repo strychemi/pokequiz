@@ -13,6 +13,12 @@ class UserPresenter < BasePresenter
     end
   end
 
+  def user_thumbnail
+    if user.profile.photo && user.profile.photo.photo.url != "/photos/original/missing.png"
+      h.image_tag(user.profile.photo.photo.url(:thumb))
+    end
+  end
+
   def user_show_link
     h.link_to(user.profile.full_name, h.user_path(user))
   end

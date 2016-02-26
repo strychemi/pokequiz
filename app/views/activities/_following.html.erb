@@ -1,5 +1,14 @@
 <% present act.user do |user_presenter| %>
-    <div class="well">
-      <%= user_presenter.user_show_link %> followed <%= user_presenter.followed_user_show_link(act) %>
-    </div>
+   <div class="row">
+     <% if user_presenter.user_thumbnail %>
+      <div class="col-xs-4">
+       <%= user_presenter.user_thumbnail %>
+      </div>
+         <% end %>
+
+      <div class="col-xs-8">
+        <%= user_presenter.user_show_link %> followed <%= user_presenter.followed_user_show_link(act) %>
+      </div>
+   </div>
 <% end %>
+<br/>
