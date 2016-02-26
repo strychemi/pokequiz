@@ -12,5 +12,7 @@ Rails.application.routes.draw do
 
   resources :results, only: [:new, :create, :show]
 
+  resources :followings, only: [:create, :destroy]
+
 
 end

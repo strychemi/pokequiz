@@ -2,6 +2,7 @@ class Profile < ActiveRecord::Base
   belongs_to :user, inverse_of: :profile
   belongs_to :photo, foreign_key: :avatar_id
   belongs_to :pokemon
+  belongs_to :type
 
   validates :first_name, :last_name, :username, presence: true
 

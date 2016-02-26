@@ -1,28 +1,29 @@
+<% present @user do |user_presenter| %>
 <section class="row">
   <section class="col-md-12">
     <%= image_tag @user.profile.photo.photo.url(:medium) if @user.profile.photo %>
-    <h2><%= "#{@user.profile.first_name} #{@user.profile.last_name}" %></h2>
+    <h2><%= user_presenter.profile.full_name %> <%= user_presenter.follow_button %></h2>
 
 
     <table class="table">
       <tr>
         <td>Username</td>
-        <td><%= @user.profile.username %></td>
+        <td><%= user_presenter.username %></td>
       </tr>
 
       <tr>
         <td>Email</td>
-        <td><%= @user.email %></td>
+        <td><%= user_presenter.email %></td>
       </tr>
 
       <tr>
         <td>Favorite Pokemon</td>
-        <td><%= @user.profile.pokemon.name %></td>
+        <td><%= user_presenter.pokemon_name %></td>
       </tr>
 
       <tr>
         <td>Favorite Pokemon Type</td>
-        <td><%= Type.find( @user.profile.type_id ).name %></td>
+        <td><%= user_presenter.pokemon_type %></td>
       </tr>
     </table>
 
@@ -30,7 +31,8 @@
     <p><%= link_to "Delete User", user_path, method: :delete, class: "btn btn-block btn-danger" %></p>
 
 
-    <%= render partial: "modaluserform.html.erb", locals: { user: @user } %>
+    <%= render partial: "modaluserform", locals: { user: @user } %>
 
   </section>
 </section>
+<% end %>

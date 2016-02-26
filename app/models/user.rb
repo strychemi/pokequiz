@@ -9,11 +9,11 @@ class User < ActiveRecord::Base
   has_many :activities
   has_many :results
 
-  has_many :initiated_followings, class_name: 'Following'
-  has_many :followeds, through: :initiated_followings, class_name: 'User'
+  has_many :initiated_followings, foreign_key: :follower_id, class_name: 'Following'
+  has_many :followeds, through: :initiated_followings, source: :followed
 
-  has_many :received_followings, class_name: 'Following'
-  has_many :followers, through: :received_followings, class_name: 'User'
+  has_many :received_followings, foreign_key: :followed_id, class_name: 'Following'
+  has_many :followers, through: :received_followings, source: :follower
 
   validates :password,
           :length => { :in => 8..24 },
