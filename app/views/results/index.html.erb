@@ -1,24 +1,24 @@
 <div class="container">
   <div class="row">
-    <% @results.each_with_index do |r, ri| %>
+    <% current_user.results.each_with_index do |r, ri| %>
       <div class="col-xs-12">
         <h3><%= "#{ri + 1}. #{r.question.question}" %></h3>
         <table class="table">
           <tr>
             <td>
-            <%= image_tag r.question.poke_from_solution.photo.photo.url(:thumb) %>
-            <td>
-            <td><strong><%= "[#{r.question.solution}]" %></strong></td>
-            <td><%= r.question.option_1 %></td>
-            <td><%= r.question.option_2 %></td>
-            <td><%= r.question.option_3 %></td>
-            <% if r.result == "true" %>
-              <td style="color:green">CORRECT</td>
-            <% else %>
-              <td style="color:red">INCORRECT</td>
-            <% end %>
-          </tr>
-      </table>
+              <%= image_tag Pokemon.find_by_name(r.question.solution).photo.photo.url(:thumb) %>
+              <td>
+              <td><strong><%= "[#{r.question.solution}]" %></strong></td>
+              <td><%= r.question.option_1 %></td>
+              <td><%= r.question.option_2 %></td>
+              <td><%= r.question.option_3 %></td>
+              <% if r.result == "true" %>
+                <td style="color:green">CORRECT</td>
+              <% else %>
+                <td style="color:red">INCORRECT</td>
+              <% end %>
+            </tr>
+        </table>
       </div>
     <% end %>
   </div>
