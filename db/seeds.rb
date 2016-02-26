@@ -21,7 +21,7 @@
 # ----------------------------------------
 
 TYPES = 18
-POKEMON = 20
+POKEMON = 151
 MULTIPLIER = 10
 GENERATE_TYPES_BOOL = true
 GENERATE_POKEMON_BOOL = true
