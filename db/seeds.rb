@@ -21,14 +21,14 @@
 # ----------------------------------------
 
 TYPES = 18
-POKEMON = 20
-MULTIPLIER = 10
-GENERATE_TYPES_BOOL = true
-GENERATE_POKEMON_BOOL = true
-GENERATE_USERS_BOOL = true
+POKEMON = 151
+MULTIPLIER = 50
+GENERATE_TYPES_BOOL = false
+GENERATE_POKEMON_BOOL = false
+GENERATE_USERS_BOOL = false
 GENERATE_CATEGORIES_BOOL = true
 GENERATE_QUESTIONS_BOOL = true
-GENERATE_RESULTS_BOOL = true
+GENERATE_RESULTS_BOOL = false
 
 # ----------------------------------------
 # Setup API

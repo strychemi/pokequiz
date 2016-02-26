@@ -12,7 +12,7 @@ class Following < ActiveRecord::Base
   validates :follower_id, :uniqueness => { :scope => :followed_id, message: "You are already following this user."}
 
   def add_activity
-    act = Activity.new(activable_type: 'Following', activable_id: self.id)
+    act = Activity.new(activable_type: 'Following', activable_id: self.followed_id)
     act.user_id = self.follower_id
     act.event = "#{User.find(self.follower_id).profile.full_name} followed #{User.find(self.followed_id).profile.full_name}"
     act.save
