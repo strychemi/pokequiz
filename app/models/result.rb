@@ -67,4 +67,6 @@ class Result < ActiveRecord::Base
     q.save
     logger.debug "Question #{q.question} asked"
   end
+
+
 end
