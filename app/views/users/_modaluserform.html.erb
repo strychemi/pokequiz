@@ -33,7 +33,7 @@
             <%= profile_fields.collection_select :pokemon_id, Pokemon.all, :id, :name, class: "form-control" %>
 
             <%= profile_fields.label "Favorite Pokemon Type" %>
-            <%= profile_fields.collection_select :type_id, PokemonType.all, :id, :name, class: "form-control" %>
+            <%= profile_fields.collection_select :pokemon_type_id, PokemonType.all, :id, :name, class: "form-control" %>
 
             <%= profile_fields.fields_for :photo do |photo_field| %>
 
