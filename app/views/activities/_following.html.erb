@@ -1,0 +1,5 @@
+<% present activity.follower_id do |user_presenter| %>
+    <div class="well">
+      <%= user_presenter.user_show_link %> followed <%= user_presenter.followed_user_show_link(activity) %>
+    </div>
+<% end %>

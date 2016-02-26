@@ -1,6 +1,8 @@
 class Result < ActiveRecord::Base
   include AnswerStats
 
+  after_create :add_activity
+
   belongs_to :user
   belongs_to :question
 
@@ -30,5 +32,12 @@ class Result < ActiveRecord::Base
 
   def self.easiest_categories(n = 2)
     []
+  end
+
+  def add_activity
+    act = Activity.new(activable_type: 'Result', activable_id: self.id)
+    act.user_id = self.user_id
+    act.event = self.result
+    act.save
   end
 end
