@@ -1,7 +1,5 @@
-<%= form_tag "#", method: :get, class: "navbar-form navbar-nav search-form" do %>
 
-  <%= text_field_tag :query, nil, placeholder: "Search", class: "form-control" %>
-
+<%= form_tag searches_path, method: 'post', class: "navbar-form navbar-nav search-form" do %>
+  <%= text_field_tag "query", nil, placeholder: "Search by email", class: "form-control" %>
   <%= submit_tag "Search", class: "btn btn-info" %>
-
 <% end %>
