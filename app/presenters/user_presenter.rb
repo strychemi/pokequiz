@@ -8,10 +8,10 @@ class UserPresenter < BasePresenter
 
 
   def user_show_photo
-    if !!user.profile.photo
+    if user.profile.photo.nil?
       h.image_tag(user.profile.photo.photo.url(:medium))
     else
-      h.link_to("Choose a Photo", "#", "data-toggle" => "modal", "data-target" => "#signinform", class: "btn btn-block btn-primary" )
+      #h.link_to("Choose a Photo", "#", "data-toggle" => "modal", "data-target" => "#signinform", class: "btn btn-block btn-primary" )
     end
   end
 
