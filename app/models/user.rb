@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   validates :password,
           :length => { :in => 8..24 },
             :allow_nil => true
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
 
   validates :profile, presence: true
 
