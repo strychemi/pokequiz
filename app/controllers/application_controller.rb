@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
   def require_login
     unless signed_in_user?
       flash[:danger] = 'Unauthorized, please sign in'
-      redirect_to login_path
+      redirect_to root_path
       logger.debug "Someone tried to access a page that required a login"
     end
   end
@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
 
   def require_current_user
     unless (params[:id] == current_user.id.to_s) || (params[:user_id] == current_user.id.to_s)
-      flash[:danger] = "You're not authorized to view this"
+      flash[:danger] = "You're not authorized"
       redirect_to request.referrer || root_path
       logger.debug "Someone tried to access a page that required the current user"
     end
